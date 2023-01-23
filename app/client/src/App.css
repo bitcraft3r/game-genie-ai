@@ -8,6 +8,10 @@
   margin: 1rem;
 }
 
+.messages-item {
+  padding: 0.25rem; 
+}
+
 .form-input {
   width: 50%;
 }

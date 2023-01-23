@@ -7,8 +7,12 @@ const Chat = () => {
         { user: "User", message: "What is this website about?"},
         { user: "Aira", message: "Hi, I'm Aira, your personal AI assistant. Ask me any question to get started."},
     ]);
+
+    const clearChat = () => {
+        setChatLog([]);
+    }
     
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(input);
         let chatLogNew = [...chatLog, {
@@ -16,6 +20,23 @@ const Chat = () => {
         }]
         setInput("");
         setChatLog(chatLogNew);
+
+        const messages = chatLogNew.map((message) => message.message).join("\n");
+
+        const response = await fetch("http://localhost:3080", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                message: messages
+            })
+        });
+        const data = await response.json();
+        setChatLog([...chatLogNew, 
+            { user: "Aira", message: `${data.message}` }
+        ])
+        console.log(data.message);
     }
 
     return (
@@ -24,7 +45,7 @@ const Chat = () => {
                 <div className="messages-log">
                     {chatLog.map((message, index) => {
                         return (
-                            <div key={index}>{message.user}: {message.message}</div>
+                            <div key={index} className="messages-item">{message.user}: {message.message}</div>
                         )
                     })}
                 </div>
@@ -40,6 +61,9 @@ const Chat = () => {
                     ></input>
                     <button>Submit</button>
                 </form>
+            </div>
+            <div>
+                <button onClick={clearChat}>Clear</button>
             </div>
         </div>
     )
