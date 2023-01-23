@@ -1,12 +1,12 @@
 import './App.css';
 import Header from './Components/Header';
-import Input from './Components/Input';
+import Chat from './Components/Chat';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Input />
+      <Chat />
     </div>
   );
 }

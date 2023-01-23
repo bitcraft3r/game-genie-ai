@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 
-const Input = () => {
+const Chat = () => {
     const [input, setInput] = useState("");
     const [chatLog, setChatLog] = useState([
         { user: "User", message: "What is this website about?"},
@@ -19,7 +19,7 @@ const Input = () => {
     }
 
     return (
-        <div>
+        <div className="chat-container">
             <div className="messages-container">
                 <div className="messages-log">
                     {chatLog.map((message, index) => {
@@ -45,4 +45,4 @@ const Input = () => {
     )
 };
 
-export default Input;
+export default Chat;

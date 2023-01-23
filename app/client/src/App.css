@@ -2,13 +2,7 @@
   text-align: center;
 }
 
-.messages-container {
-  border: 1px solid #ccc;
-  padding: 1rem;
-  margin: 1rem;
-}
-
-.form-container {
+.chat-container, .messages-container, .form-container {
   border: 1px solid #ccc;
   padding: 1rem;
   margin: 1rem;
