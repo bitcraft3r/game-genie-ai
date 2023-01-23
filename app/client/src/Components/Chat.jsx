@@ -4,8 +4,8 @@ import { useState } from 'react';
 const Chat = () => {
     const [input, setInput] = useState("");
     const [chatLog, setChatLog] = useState([
-        { user: "User", message: "What is this website about?"},
-        { user: "Aira", message: "Hi, I'm Aira, your personal AI assistant. Ask me any question to get started."},
+        // { user: "Me", message: "What is this website about?"},
+        { user: "Aira", message: "Hi, I'm Aira from Gemscape. Ask me any question to get started."},
     ]);
 
     const clearChat = () => {
@@ -16,12 +16,12 @@ const Chat = () => {
         e.preventDefault();
         console.log(input);
         let chatLogNew = [...chatLog, {
-            user: "User", message: `${input}`
+            user: "Me", message: `${input}`
         }]
         setInput("");
         setChatLog(chatLogNew);
 
-        const messages = chatLogNew.map((message) => message.message).join("\n");
+        // const messages = chatLogNew.map((message) => message.message).join("\n");
 
         const response = await fetch("http://localhost:3080", {
             method: "POST",
@@ -29,7 +29,8 @@ const Chat = () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                message: messages
+                // message: messages
+                userPrompt: input
             })
         });
         const data = await response.json();

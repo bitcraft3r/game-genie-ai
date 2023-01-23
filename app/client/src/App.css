@@ -8,8 +8,12 @@
   margin: 1rem;
 }
 
+.messages-container {
+  text-align: left;
+}
+
 .messages-item {
-  padding: 0.25rem; 
+  padding: 0.25rem;   
 }
 
 .form-input {
