@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  background-image: url(/src/images/background.png);
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  background-size: cover;
+  background-position: center;
 }
 
 .chat-container, .messages-container, .form-container {
