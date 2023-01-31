@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
   background-image: url(/src/images/background.png);
   position: fixed;
@@ -6,6 +6,33 @@
   min-height: 100%;
   background-size: cover;
   background-position: center;
+} */
+
+.nav {
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.nav-logo {
+  padding: 0 1rem;
+}
+
+.nav-logo img {
+  width: 175px;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  padding: 0 1rem;
+  list-style-type: none;
+}
+
+.nav-links li {
+  padding: 0 1rem;
 }
 
 .chat-container, .messages-container, .form-container {

@@ -14,6 +14,8 @@ In the `server` folder:
 
 2. `npm install express cors body-parser morgan openai dotenv --save`
 
+3. setting up react router: `npm i react-router react-router-dom`
+
 ## Resources
 
 1. OpenAI API: https://beta.openai.com/docs/introduction
