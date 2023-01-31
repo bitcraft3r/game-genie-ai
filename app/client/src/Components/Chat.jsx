@@ -4,8 +4,7 @@ import { useState } from 'react';
 const Chat = () => {
     const [input, setInput] = useState("");
     const [chatLog, setChatLog] = useState([
-        // { user: "Me", message: "What is this website about?"},
-        { user: "Aira", message: "Hi, I'm Aira from Gemscape. Ask me any question to get started."},
+        { user: "Aira", message: "Greetings! I am Aira from the 6th dimension. I am here to help you with any questions or tasks you may have. Please let me know how I can be of assistance."},
     ]);
 
     const clearChat = () => {
@@ -56,7 +55,7 @@ const Chat = () => {
                     <input
                         rows="1"
                         value={input}
-                        placeholder="Ask a question"
+                        placeholder="Chat with Aira..."
                         onChange={(e) => setInput(e.target.value)}
                         className="form-input"
                     ></input>
