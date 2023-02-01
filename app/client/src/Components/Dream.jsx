@@ -104,18 +104,20 @@ const Dream = () => {
   }, [retry]);
 
   return (
-    <div className="dream">
+    <div className="container">
       <div className="header">
         <div className="header-title">
           <h1>Dream 🧙</h1>
         </div>
         <div className="header-subtitle">
-          <h2>Dream up any image and generate it from text.</h2>
+          <h2>Dream up any image and generate it from text</h2>
         </div>
-        <div className="prompt-container">
+      </div>
+      <div>
+        <div className="dream-container">
           <code>/dream </code>
-          <input className="prompt-box" value={input} onChange={onChange} />
-          <div className="prompt-buttons">
+          <input className="dream-box" value={input} placeholder="goddess adventurer, anime style, symmetrical facing front, beautiful nature landscape background" onChange={onChange} />
+          <div className="dream-buttons">
             <a 
               className={
                 isGenerating ? 'generate-button loading' : 'generate-button'
@@ -124,21 +126,25 @@ const Dream = () => {
             >
               <div className="generate">
                 {isGenerating ? (
-                  <span className="loader"></span>
+                  <div className="loader-container">
+                    <div className="loader"></div>
+                  </div>
                 ) : (
-                  <p>Generate</p>
+                  <button>Generate</button>
                 )}
               </div>
             </a>
           </div>
         </div>
       </div>
-      {img && (
-        <div className="output-content">
-          <img src={img} width={512} height={512} alt={input} />
-          <p>{finalPrompt}</p>
-        </div>
-      )}
+      <div className="image-container">
+        {img && (
+          <div className="output-content">
+            <img src={img} width={512} height={512} alt={input} />
+            <p>{finalPrompt}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

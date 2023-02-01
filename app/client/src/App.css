@@ -21,7 +21,7 @@
 }
 
 .nav-logo img {
-  width: 175px;
+  width: 160px;
 }
 
 .nav-links {
@@ -35,7 +35,7 @@
   padding: 0 1rem;
 }
 
-.chat-container, .messages-container, .form-container {
+.container, .messages-container, .form-container, .dream-container, .image-container {
   border: 1px solid #ccc;
   padding: 1rem;
   margin: 1rem;
@@ -50,7 +50,7 @@
   padding: 0.25rem;   
 }
 
-.form-input {
+.form-input, .dream-container input {
   width: 75%;
 }
 

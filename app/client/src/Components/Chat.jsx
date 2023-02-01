@@ -43,7 +43,15 @@ const Chat = () => {
     }
 
     return (
-        <div className="chat-container">
+        <div className="container">
+            <div className="header">
+                <div className="header-title">
+                    <h1>Chat 👾</h1>
+                </div>
+                <div className="header-subtitle">
+                    <h2>Meet Aira — a 6th dimensional being</h2>
+                </div>
+            </div>
             <div className="messages-container">
                 <div className="messages-log">
                     {chatLog.map((message, index) => {
