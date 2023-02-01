@@ -2,25 +2,33 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 
 const Dream = () => {
-  // Don't retry more than 20 times
+
   const maxRetries = 20;
 
   const [input, setInput] = useState('');
   const [img, setImg] = useState(''); 
-  const [retry, setRetry] = useState(0);
-  const [retryCount, setRetryCount] = useState(maxRetries);
   const [isGenerating, setIsGenerating] = useState(false);
   const [finalPrompt, setFinalPrompt] = useState('');
+  const [retry, setRetry] = useState(0);
+  const [retryCount, setRetryCount] = useState(maxRetries);
+
+  const sleep = (ms) => {
+    return new Promise((resolve) => {
+      setTimeout(resolve, ms);
+    });
+  };
 
   const onChange = (e) => {
     setInput(e.target.value);
   };
 
-  const generateAction = async () => {
+  const generateImage = async () => {
+
     // Add this check to make sure there is no double click
     if (isGenerating && retry === 0) return;
 
     // Set loading has started
+    console.log("generating...");
     setIsGenerating(true);
 
     // If this is a retry request, take away retryCount
@@ -32,11 +40,12 @@ const Dream = () => {
           return prevState - 1;
         }
       });
-
       setRetry(0);
     }
 
-    // Add the fetch request
+    console.log(`input from frontend`, JSON.stringify({ input }));  // {"input":"user prompt here"}
+
+    // fetch request
     const response = await fetch('http://localhost:3090', {
       method: 'POST',
       headers: {
@@ -46,40 +55,30 @@ const Dream = () => {
     });
 
     const data = await response.json();
+    console.log(data);
 
-    // If model still loading, drop that retry time
     if (response.status === 503) {
-      // Set the estimated_time property in state
+      console.log("Model is still loading...");
       setRetry(data.estimated_time);
       return;
-    };
+    }
 
-    // If another error, drop error
-    if (!response.ok) { // ok == 200
+    if (!response.ok) {
       console.log(`Error: ${data.error}`);
-      // Stop loading
       setIsGenerating(false);
       return;
-    };
+    }
 
-    // Set final prompt here
     setFinalPrompt(input);
-    // Remove content from input box
     setInput('');
 
     // Set image data into state property
     setImg(data.image);
+    console.log('img', img);
 
-    // Everything is all done -- stop loading!
     setIsGenerating(false);
 
-  };
-  
-  const sleep = (ms) => {
-    return new Promise((resolve) => {
-      setTimeout(resolve, ms);
-    });
-  };
+  }
 
   useEffect(() => {
     const runRetry = async () => {
@@ -93,7 +92,7 @@ const Dream = () => {
 
       await sleep(retry * 1000);
 
-      await generateAction();
+      await generateImage();
     };
 
     if (retry === 0) {
@@ -122,7 +121,7 @@ const Dream = () => {
               className={
                 isGenerating ? 'generate-button loading' : 'generate-button'
               }
-              onClick={generateAction}
+              onClick={generateImage}
             >
               <div className="generate">
                 {isGenerating ? (
