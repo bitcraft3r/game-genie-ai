@@ -49,7 +49,7 @@ const Chat = () => {
                     <h1>Chat 👾</h1>
                 </div>
                 <div className="header-subtitle">
-                    <h2>Meet Aira — a 6th dimensional being</h2>
+                    <h2>Ask Aira anything</h2>
                 </div>
             </div>
             <div className="messages-container">
