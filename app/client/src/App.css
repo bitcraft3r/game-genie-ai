@@ -50,7 +50,7 @@
   padding: 0.25rem;   
 }
 
-.form-input, .dream-container input {
+.form-input, .dream-container textarea {
   width: 75%;
 }
 

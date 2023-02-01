@@ -115,7 +115,7 @@ const Dream = () => {
       <div>
         <div className="dream-container">
           <code>/dream </code>
-          <input className="dream-box" value={input} placeholder="goddess adventurer, anime style, symmetrical facing front, beautiful nature landscape background" onChange={onChange} />
+          <textarea className="dream-box" value={input} placeholder="goddess adventurer, anime style, symmetrical facing front, beautiful nature landscape background" onChange={onChange} />
           <div className="dream-buttons">
             <a 
               className={
