@@ -6,6 +6,7 @@ const Chat = () => {
     const [chatLog, setChatLog] = useState([
         { user: "Aira", message: "Greetings! I am Aira from the 6th dimension. I am here to help you with any questions or tasks you may have. Please let me know how I can be of assistance."},
     ]);
+    const [isLoading, setIsLoading] = useState(false);
 
     const clearChat = () => {
         setChatLog([]);
@@ -21,6 +22,7 @@ const Chat = () => {
         setChatLog(chatLogNew);
 
         // const messages = chatLogNew.map((message) => message.message).join("\n");
+        setIsLoading(true);
 
         const response = await fetch("http://localhost:3080", {
             method: "POST",
@@ -36,6 +38,7 @@ const Chat = () => {
         setChatLog([...chatLogNew, 
             { user: "Aira", message: `${data.message}` }
         ])
+        setIsLoading(false);
         console.log(data.message);
     }
 
@@ -59,7 +62,13 @@ const Chat = () => {
                         onChange={(e) => setInput(e.target.value)}
                         className="form-input"
                     ></input>
-                    <button>Submit</button>
+                    {isLoading ? (
+                        <div className="loader-container">
+                            <div className="loader"></div>
+                        </div>
+                    ) : (
+                        <button>Submit</button>
+                    )}
                 </form>
             </div>
             <div>
