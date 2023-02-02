@@ -24,7 +24,7 @@ const Chat = () => {
         // const messages = chatLogNew.map((message) => message.message).join("\n");
         setIsLoading(true);
 
-        const response = await fetch("http://localhost:3090/chat", {
+        const response = await fetch("https://aira-chatbot-openai-react-backend-cv9y24v09-adv3nture.vercel.app:3080/chat", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

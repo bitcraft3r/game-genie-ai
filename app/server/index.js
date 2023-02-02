@@ -22,7 +22,7 @@ const bufferToBase64 = (buffer) => {
   return `data:image/png;base64,${base64}`;
 };
 
-const port = 3090;
+const port = 3080;
 
 app.post('/chat', async (req, res) => {
     const { userPrompt } = req.body;
@@ -75,5 +75,5 @@ app.post('/dream', async (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`Dream server listening at http://localhost:${port}`)
+    console.log(`Dream server listening at https://aira-chatbot-openai-react-backend-cv9y24v09-adv3nture.vercel.app:${port}`)
 })
