@@ -49,7 +49,7 @@ const Dream = () => {
     const response = await fetch('http://localhost:3090', {
       method: 'POST',
       headers: {
-        'Content-Type': 'image/jpeg',
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({ input }),
     });
