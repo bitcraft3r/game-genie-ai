@@ -24,13 +24,12 @@ const Chat = () => {
         // const messages = chatLogNew.map((message) => message.message).join("\n");
         setIsLoading(true);
 
-        const response = await fetch("http://localhost:3080", {
+        const response = await fetch("http://localhost:3090/chat", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                // message: messages
                 userPrompt: input
             })
         });

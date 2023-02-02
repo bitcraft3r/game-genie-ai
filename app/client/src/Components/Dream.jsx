@@ -46,7 +46,7 @@ const Dream = () => {
     console.log(`input from frontend`, JSON.stringify({ input }));  // {"input":"user prompt here"}
 
     // fetch request
-    const response = await fetch('http://localhost:3090', {
+    const response = await fetch('http://localhost:3090/dream', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json"
