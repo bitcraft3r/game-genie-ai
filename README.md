@@ -16,6 +16,12 @@ In the `server` folder:
 
 3. setting up react router: `npm i react-router react-router-dom`
 
+### Deploying backend to Vercel
+
+- https://vercel.com/guides/using-express-with-vercel
+- https://shadowsmith.com/how-to-deploy-an-express-api-to-vercel
+- https://dev.to/andrewbaisden/how-to-deploy-a-node-express-app-to-vercel-2aa
+
 ## Resources
 
 1. OpenAI API: https://beta.openai.com/docs/introduction

@@ -75,5 +75,8 @@ app.post('/dream', async (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`Dream server listening at https://insprai-server-production.up.railway.app:${port}`)
+    console.log(`Listening at Port: ${port}`)
 })
+
+// Export the Express API
+module.exports = app;

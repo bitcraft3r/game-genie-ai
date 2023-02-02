@@ -46,7 +46,9 @@ const Dream = () => {
     console.log(`input from frontend`, JSON.stringify({ input }));  // {"input":"user prompt here"}
 
     // fetch request
-    const response = await fetch('https://insprai-server-production.up.railway.app:3080/dream', {
+    const response = await fetch('https://aira-chatbot-openai-react-backend.vercel.app:3080/dream', {
+    // const response = await fetch('https://insprai-server-production.up.railway.app:3080/dream', {
+    // const response = await fetch('http://localhost:3080/dream', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json"
@@ -100,7 +102,7 @@ const Dream = () => {
     }
 
     runRetry();
-  }, [retry]);
+  }, [retry, generateImage, retryCount]);
 
   return (
     <div className="container">
@@ -117,7 +119,7 @@ const Dream = () => {
           <code>/dream </code>
           <textarea className="dream-box" value={input} placeholder="goddess adventurer, anime style, symmetrical facing front, beautiful nature landscape background" onChange={onChange} />
           <div className="dream-buttons">
-            <a 
+            <div 
               className={
                 isGenerating ? 'generate-button loading' : 'generate-button'
               }
@@ -132,7 +134,7 @@ const Dream = () => {
                   <button>Generate</button>
                 )}
               </div>
-            </a>
+            </div>
           </div>
         </div>
       </div>
