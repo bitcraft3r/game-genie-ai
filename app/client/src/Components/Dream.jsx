@@ -46,7 +46,7 @@ const Dream = () => {
     console.log(`input from frontend`, JSON.stringify({ input }));  // {"input":"user prompt here"}
 
     // fetch request
-    const response = await fetch('https://aira-chatbot-openai-react-backend-cv9y24v09-adv3nture.vercel.app:3080/dream', {
+    const response = await fetch('https://insprai-server-production.up.railway.app:3080/dream', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json"

@@ -75,5 +75,5 @@ app.post('/dream', async (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`Dream server listening at https://aira-chatbot-openai-react-backend-cv9y24v09-adv3nture.vercel.app:${port}`)
+    console.log(`Dream server listening at https://insprai-server-production.up.railway.app:${port}`)
 })
