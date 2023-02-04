@@ -75,7 +75,7 @@ app.post('/dream', async (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`Listening at Port: ${port}`)
+    console.log(`Server running on Port: ${port}`)
 })
 
 // Export the Express API
