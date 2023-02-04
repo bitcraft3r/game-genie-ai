@@ -33,9 +33,9 @@ const Create = () => {
             </div>
         </div>
         <div className="create-container">
-            <div><Section arr={brandArr} heading={"Branding"} slug={"brand"} /></div>
-            <div><Section arr={copyArr} heading={"Copywriting"} slug={"copy"} /></div>
-            <div><Section arr={hrArr} heading={"HR"} slug={"hr"} /></div>
+            <div><Section arr={brandArr} heading="Branding" slug="brand" description="Branding description" /></div>
+            <div><Section arr={copyArr} heading="Copywriting" slug="copy" description="Copywriting description" /></div>
+            <div><Section arr={hrArr} heading="HR" slug="hr" description="HR description" /></div>
         </div>
     </div>
   )

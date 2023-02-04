@@ -1,7 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Section = ({ arr, heading, slug }) => {
+
+const Section = ({ arr, heading, slug, description }) => {
+    
+    // https://www.positronx.io/react-router-dom-send-or-get-props-state-with-link-tutorial/
+    
+    const categoryData = {
+        heading: heading,
+        slug: slug,
+        arr: arr,
+        description: description
+    }
 
     const items = arr.map((e, i) => {
         return (
@@ -13,7 +23,7 @@ const Section = ({ arr, heading, slug }) => {
 
   return (
     <div>
-        <h3><Link to={`/create/${slug}`}>{heading}</Link></h3>
+        <h3><Link to={`/create/${slug}`} state={categoryData}>{heading}</Link></h3>
         {items}
     </div>
   )
