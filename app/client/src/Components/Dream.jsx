@@ -13,6 +13,8 @@ const Dream = () => {
   const [retry, setRetry] = useState(0);
   const [retryCount, setRetryCount] = useState(maxRetries);
 
+  const [width, setWidth] = useState(window.innerWidth);
+
   const sleep = (ms) => {
     return new Promise((resolve) => {
       setTimeout(resolve, ms);
@@ -113,6 +115,14 @@ const Dream = () => {
     runRetry();
   }, [retry]);
 
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [window.innerWidth])
+
   return (
     <div className="container">
       <div className="header">
@@ -150,7 +160,13 @@ const Dream = () => {
       <div className="image-container">
         {img && (
           <div className="output-content">
-            <img src={img} width={512} height={512} alt={input} />
+            <img 
+              src={img} 
+              width={
+                (width < 640) ? "100%" : 512
+              }
+              alt={input} 
+            />
             <p>{finalPrompt}</p>
             <button onClick={handleSave}>Download Image</button>
           </div>
