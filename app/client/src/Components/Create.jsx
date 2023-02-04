@@ -21,6 +21,13 @@ const hrArr = [
     { slug: "interview", title: "Interview Questions" },
 ]
 
+const gameArr = [
+    { slug: "story", title: "Lore & Storylines" },
+    { slug: "character", title: "Characters" },
+    { slug: "quest", title: "Quests" },
+    { slug: "art", title: "Art" },
+]
+
 const Create = () => {
   return (
     <div className="container">
@@ -33,9 +40,10 @@ const Create = () => {
             </div>
         </div>
         <div className="create-container">
-            <div><Section arr={brandArr} heading="Branding" slug="brand" description="Branding description" /></div>
-            <div><Section arr={copyArr} heading="Copywriting" slug="copy" description="Copywriting description" /></div>
-            <div><Section arr={hrArr} heading="HR" slug="hr" description="HR description" /></div>
+            <div><Section arr={brandArr} heading="Branding" slug="brand" description="Optimize your brand image and voice" /></div>
+            <div><Section arr={copyArr} heading="Copywriting" slug="copy" description="Generate professional copy to increase conversion" /></div>
+            <div><Section arr={hrArr} heading="Hiring" slug="hr" description="Save 100s of hours with our HR tools" /></div>
+            <div><Section arr={gameArr} heading="Gaming" slug="game" description="Create engaging and immersive game content" /></div>
         </div>
     </div>
   )
