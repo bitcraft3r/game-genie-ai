@@ -35,7 +35,7 @@
   padding: 0 1rem;
 }
 
-.container, .messages-container, .form-container, .dream-container, .image-container {
+.container, .messages-container, .form-container, .dream-container, .image-container, .create-container {
   border: 1px solid #ccc;
   padding: 1rem;
   margin: 1rem;
@@ -77,4 +77,9 @@
   width: 12px;
   height: 12px;
   animation: spin 1s linear infinite;
+}
+
+.create-container {
+  display: flex;
+  justify-content: space-around;
 }

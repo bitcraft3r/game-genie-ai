@@ -5,7 +5,7 @@ const Home = () => {
     <div className="container">
         <div className="header">
                 <div className="header-title">
-                    <h1>insprAI 🪄</h1>
+                    <h1>insprAI ✨</h1>
                 </div>
                 <div className="header-subtitle">
                     <h2>Unleash the magic of AI chat and picture generation</h2>
