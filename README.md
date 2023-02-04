@@ -6,6 +6,8 @@
 
 2. `npm start` in `client` folder to run server.
 
+3. `npm install file-saver` to install file-saver package.
+
 ### Setting Up Backend
 
 In the `server` folder:

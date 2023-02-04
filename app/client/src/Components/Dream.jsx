@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
+import { saveAs } from 'file-saver';
 
 const Dream = () => {
 
@@ -82,6 +83,14 @@ const Dream = () => {
 
   }
 
+  const handleSave = () => {
+    let url = `${img}`;
+    let str = `${finalPrompt}`;
+    str = str.replaceAll(',', '').replace(/\s+/g, '-').toLowerCase(); // remove comma, replace space with dash, make all lowercase
+    console.log(str); 
+    saveAs(url, `insprAI-${str}.png`);
+  }
+
   useEffect(() => {
     const runRetry = async () => {
       if (retryCount === 0) {
@@ -102,7 +111,7 @@ const Dream = () => {
     }
 
     runRetry();
-  }, [retry, generateImage, retryCount]);
+  }, [retry]);
 
   return (
     <div className="container">
@@ -143,6 +152,7 @@ const Dream = () => {
           <div className="output-content">
             <img src={img} width={512} height={512} alt={input} />
             <p>{finalPrompt}</p>
+            <button onClick={handleSave}>Download Image</button>
           </div>
         )}
       </div>
