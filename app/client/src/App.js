@@ -16,7 +16,6 @@ function App() {
           <Link to="/"><img src={logo} alt="logo" /></Link>
         </div>
         <ul className="nav-links">
-          <li><Link to="/">Home</Link></li>
           <li><Link to="/create">Create</Link></li>
           <li><Link to="/chat">Chat</Link></li>
           <li><Link to="/dream">Dream</Link></li>
@@ -27,7 +26,7 @@ function App() {
         <Route path="/chat" element={<Chat />}></Route>
         <Route path="/dream" element={<Dream />}></Route>
         <Route path="/create" element={<Create />}></Route>
-        <Route path="/create/:id" element={<Item />}></Route>
+        <Route path="/create/:id" element={<Category />}></Route>
         <Route path="/create/:id/:id" element={<Item />}></Route>
       </Routes>
     </>

@@ -1,5 +1,5 @@
 import React from 'react';
-import Category from './Category';
+import Section from './Section';
 
 const brandArr = [
     { slug: "linkedin", title: "LinkedIn Bio" },
@@ -33,9 +33,9 @@ const Create = () => {
             </div>
         </div>
         <div className="create-container">
-            <div><Category arr={brandArr} heading={"Branding"} slug={"brand"} /></div>
-            <div><Category arr={copyArr} heading={"Copywriting"} slug={"copy"} /></div>
-            <div><Category arr={hrArr} heading={"HR"} slug={"hr"} /></div>
+            <div><Section arr={brandArr} heading={"Branding"} slug={"brand"} /></div>
+            <div><Section arr={copyArr} heading={"Copywriting"} slug={"copy"} /></div>
+            <div><Section arr={hrArr} heading={"HR"} slug={"hr"} /></div>
         </div>
     </div>
   )
