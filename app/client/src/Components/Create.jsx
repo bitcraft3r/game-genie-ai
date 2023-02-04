@@ -14,19 +14,19 @@ const Create = () => {
         </div>
         <div className="create-container">
             <div>
-                <h3><Link to="/create/branding">Branding</Link></h3>
-                <div><Link to="/create/branding/linkedin">LinkedIn Bio</Link></div>
-                <div><Link to="/create/branding/twitter">Twitter Bio</Link></div>
-                <div><Link to="/create/branding/marketing">Marketing Copy</Link></div>
-                <div><Link to="/create/branding/elevator">Elevator Pitch</Link></div>
+                <h3><Link to="/create/brand">Branding</Link></h3>
+                <div><Link to="/create/brand/linkedin">LinkedIn Bio</Link></div>
+                <div><Link to="/create/brand/twitter">Twitter Bio</Link></div>
+                <div><Link to="/create/brand/marketing">Marketing Copy</Link></div>
+                <div><Link to="/create/brand/elevator">Elevator Pitch</Link></div>
             </div>
             <div>
-                <h3><Link to="/create/word">Word Wizard</Link></h3>
-                <div><Link to="/create/word/summarize">Summarize</Link></div>
-                <div><Link to="/create/word/thread">Twitter Threads</Link></div>
-                <div><Link to="/create/word/blog">Blog Post</Link></div>
-                <div><Link to="/create/word/email">Write Emails</Link></div>
-                <div><Link to="/create/word/grammar">Grammar Check</Link></div>
+                <h3><Link to="/create/copy">Copywriting</Link></h3>
+                <div><Link to="/create/copy/summarize">Summarize</Link></div>
+                <div><Link to="/create/copy/thread">Twitter Threads</Link></div>
+                <div><Link to="/create/copy/blog">Blog Post</Link></div>
+                <div><Link to="/create/copy/email">Write Emails</Link></div>
+                <div><Link to="/create/copy/grammar">Grammar Check</Link></div>
             </div>
             <div>
                 <h3><Link to="/create/hr">HR</Link></h3>
