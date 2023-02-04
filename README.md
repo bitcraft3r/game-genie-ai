@@ -6,7 +6,10 @@
 
 2. `npm start` in `client` folder to run server.
 
-3. `npm install file-saver` to install file-saver package.
+3. `npm i file-saver` to install file-saver package.
+
+4. `npm i react-csv` to install react-csv.
+
 
 ### Setting Up Backend
 
