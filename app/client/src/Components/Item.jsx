@@ -1,5 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router';
+import Form from './Form';
 
 const Item = (props) => {
     const location = useLocation();
@@ -12,6 +13,7 @@ const Item = (props) => {
             <h2>{propsData.description}</h2>
             <div className="container">
                 /create/{propsData.slugA}/{propsData.slugB}
+                <Form />
             </div>
         </div>
     )
