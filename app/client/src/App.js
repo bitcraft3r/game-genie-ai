@@ -3,7 +3,7 @@ import Home from './Components/Home';
 import Chat from './Components/Chat';
 import Dream from './Components/Dream';
 import Create from './Components/Create';
-import Category from './Components/Category';
+// import Category from './Components/Category';
 import Item from './Components/Item';
 import { Link, Route, Routes } from 'react-router-dom';
 import logo from './assets/logo.png';
@@ -26,7 +26,7 @@ function App() {
         <Route path="/chat" element={<Chat />}></Route>
         <Route path="/dream" element={<Dream />}></Route>
         <Route path="/create" element={<Create />}></Route>
-        <Route path="/create/:id" element={<Category />}></Route>
+        {/* <Route path="/create/:id" element={<Category />}></Route> */}
         <Route path="/create/:id/:id" element={<Item />}></Route>
       </Routes>
     </>

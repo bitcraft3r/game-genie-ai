@@ -2,30 +2,30 @@ import React from 'react';
 import Section from './Section';
 
 const brandArr = [
-    { slug: "linkedin", title: "LinkedIn Bio" },
-    { slug: "twitter", title: "Twitter Bio" },
-    { slug: "marketing", title: "Marketing Copy" },
-    { slug: "elevator", title: "Elevator Pitch" },
+    { slug: "linkedin", title: "LinkedIn Bio", description: "Optimize your brand image and voice" },
+    { slug: "twitter", title: "Twitter Bio", description: "Twitter bio description here" },
+    { slug: "marketing", title: "Marketing Copy", description: "Marketing copy description here" },
+    { slug: "elevator", title: "Elevator Pitch", description: "Elevator pitch description here" },
 ];
 
 const copyArr = [
-    { slug: "summary", title: "Summarize" },
-    { slug: "blog", title: "Blog Post" },
-    { slug: "thread", title: "Twitter Thread" },
-    { slug: "email", title: "Write Emails" },
-    { slug: "freestyle", title: "Freestyle Writer" },
+    { slug: "summary", title: "Summarize", description: "Generate professional copy to increase conversion" },
+    { slug: "blog", title: "Blog Post", description: "Copy blog description here" },
+    { slug: "thread", title: "Twitter Thread", description: "Copy thread description here" },
+    { slug: "email", title: "Write Emails", description: "Copy email description here" },
+    { slug: "freestyle", title: "Freestyle Writer", description: "Copy freestyle description here" },
 ];
 
 const hrArr = [
-    { slug: "description", title: "Job Description" },
-    { slug: "interview", title: "Interview Questions" },
+    { slug: "description", title: "Job Description", description: "Save 100s of hours with our HR tools" },
+    { slug: "interview", title: "Interview Questions", description: "Interview description here" },
 ]
 
 const gameArr = [
-    { slug: "story", title: "Lore & Storylines" },
-    { slug: "character", title: "Characters" },
-    { slug: "quest", title: "Quests" },
-    { slug: "art", title: "Art" },
+    { slug: "story", title: "Lore & Storylines", description: "Create engaging and immersive game content" },
+    { slug: "character", title: "Characters", description: "Game character description here" },
+    { slug: "quest", title: "Quests", description: "Game quest description here" },
+    { slug: "art", title: "Art", description: "Game art description here" },
 ]
 
 const Create = () => {
@@ -40,10 +40,10 @@ const Create = () => {
             </div>
         </div>
         <div className="create-container">
-            <div><Section arr={brandArr} heading="Branding" slug="brand" description="Optimize your brand image and voice" /></div>
-            <div><Section arr={copyArr} heading="Copywriting" slug="copy" description="Generate professional copy to increase conversion" /></div>
-            <div><Section arr={hrArr} heading="Hiring" slug="hr" description="Save 100s of hours with our HR tools" /></div>
-            <div><Section arr={gameArr} heading="Gaming" slug="game" description="Create engaging and immersive game content" /></div>
+            <div><Section arr={brandArr} heading="Branding" slug="brand" /></div>
+            <div><Section arr={copyArr} heading="Copywriting" slug="copy" /></div>
+            <div><Section arr={hrArr} heading="Hiring" slug="hr" /></div>
+            <div><Section arr={gameArr} heading="Gaming" slug="game" /></div>
         </div>
     </div>
   )
