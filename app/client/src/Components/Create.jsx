@@ -1,46 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Category from './Category';
 
-const itemsArr = [
-    { category: "brand", slug: "linkedin", title: "LinkedIn Bio" },
-    { category: "brand", slug: "twitter", title: "Twitter Bio" },
-    { category: "brand", slug: "marketing", title: "Marketing Copy" },
-    { category: "brand", slug: "elevator", title: "Elevator Pitch" },
-    { category: "copy", slug: "summary", title: "Summarize" },
-    { category: "copy", slug: "blog", title: "Blog Post" },
-    { category: "copy", slug: "thread", title: "Twitter Thread" },
-    { category: "copy", slug: "email", title: "Write Emails" },
-    { category: "copy", slug: "freestyle", title: "Freestyle Writer" },
-    { category: "hr", slug: "description", title: "Job Description" },
-    { category: "hr", slug: "interview", title: "Interview Questions" },
+const brandArr = [
+    { slug: "linkedin", title: "LinkedIn Bio" },
+    { slug: "twitter", title: "Twitter Bio" },
+    { slug: "marketing", title: "Marketing Copy" },
+    { slug: "elevator", title: "Elevator Pitch" },
 ];
 
-const brands = itemsArr.map((e, i) => {
-    if (e.category === "brand") 
-    return (
-        <div key={i+e.slug}>
-            <Link to={`/create/${e.category}/${e.slug}`}>{e.title}</Link>
-        </div>
-    )
-});
+const copyArr = [
+    { slug: "summary", title: "Summarize" },
+    { slug: "blog", title: "Blog Post" },
+    { slug: "thread", title: "Twitter Thread" },
+    { slug: "email", title: "Write Emails" },
+    { slug: "freestyle", title: "Freestyle Writer" },
+];
 
-const copies = itemsArr.map((e, i) => {
-    if (e.category === "copy") 
-    return (
-        <div key={e.category+i+e.slug}>
-            <Link to={`/create/${e.category}/${e.slug}`}>{e.title}</Link>
-        </div>
-    )
-});
-
-const hr = itemsArr.map((e, i) => {
-    if (e.category === "hr") 
-    return (
-        <div key={i+e.slug}>
-            <Link to={`/create/${e.category}/${e.slug}`}>{e.title}</Link>
-        </div>
-    )
-});
+const hrArr = [
+    { slug: "description", title: "Job Description" },
+    { slug: "interview", title: "Interview Questions" },
+]
 
 const Create = () => {
   return (
@@ -54,18 +33,9 @@ const Create = () => {
             </div>
         </div>
         <div className="create-container">
-            <div>
-                <h3><Link to="/create/brand">Branding</Link></h3>
-                <div>{brands}</div>
-            </div>
-            <div>
-                <h3><Link to="/create/copy">Copywriting</Link></h3>
-                <div>{copies}</div>
-            </div>
-            <div>
-                <h3><Link to="/create/hr">HR</Link></h3>
-                <div>{hr}</div>
-            </div>
+            <div><Category arr={brandArr} heading={"Branding"} slug={"brand"} /></div>
+            <div><Category arr={copyArr} heading={"Copywriting"} slug={"copy"} /></div>
+            <div><Category arr={hrArr} heading={"HR"} slug={"hr"} /></div>
         </div>
     </div>
   )

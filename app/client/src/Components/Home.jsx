@@ -8,7 +8,7 @@ const Home = () => {
                     <h1>insprAI ✨</h1>
                 </div>
                 <div className="header-subtitle">
-                    <h2>Unleash the magic of AI chat and picture generation</h2>
+                    <h2>Unleash the magic of AI tools, chat and picture generation</h2>
                 </div>
             </div>
     </div>
