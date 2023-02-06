@@ -5,10 +5,10 @@ const Home = () => {
     <div className="container">
         <div className="header">
                 <div className="header-title">
-                    <h1>insprAI ✨</h1>
+                    <h1>Game Genie AI 🧞‍♀️✨</h1>
                 </div>
                 <div className="header-subtitle">
-                    <h2>Unleash the magic of AI tools, chat and picture generation</h2>
+                  <h2>Empowering game creators with AI-powered tools for concept, story, art and content generation</h2>
                 </div>
             </div>
     </div>

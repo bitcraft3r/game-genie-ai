@@ -1,31 +1,27 @@
 import React from 'react';
 import Section from './Section';
 
-const brandArr = [
-    { slug: "linkedin", title: "LinkedIn Bio", description: "Optimize your brand image and voice" },
-    { slug: "twitter", title: "Twitter Bio", description: "Twitter bio description here" },
-    { slug: "marketing", title: "Marketing Copy", description: "Marketing copy description here" },
-    { slug: "elevator", title: "Elevator Pitch", description: "Elevator pitch description here" },
-];
-
-const copyArr = [
-    { slug: "summary", title: "Summarize", description: "Generate professional copy to increase conversion" },
-    { slug: "blog", title: "Blog Post", description: "Copy blog description here" },
-    { slug: "thread", title: "Twitter Thread", description: "Copy thread description here" },
-    { slug: "email", title: "Write Emails", description: "Copy email description here" },
-    { slug: "freestyle", title: "Freestyle Writer", description: "Copy freestyle description here" },
-];
-
-const hrArr = [
-    { slug: "description", title: "Job Description", description: "Save 100s of hours with our HR tools" },
-    { slug: "interview", title: "Interview Questions", description: "Interview description here" },
+const conceptArr = [
+    { slug: "idea", title: "Game Idea", description: "Generate a name and description for your next game" },
+    { slug: "campaign", title: "Campaigns & Quests", description: "Create quests, puzzels and other campaigns" },
 ]
 
-const gameArr = [
-    { slug: "story", title: "Lore & Storylines", description: "Create engaging and immersive game content" },
-    { slug: "character", title: "Characters", description: "Game character description here" },
-    { slug: "quest", title: "Quests", description: "Game quest description here" },
-    { slug: "art", title: "Art", description: "Game art description here" },
+const storyArr = [
+    { slug: "lore", title: "Lore", description: "Create an immersive lore for your game" },
+    { slug: "storyline", title: "Storyline", description: "Create monologue/dialogues and other engaging stories" },
+    { slug: "character", title: "Characters", description: "Create characters for your game, from origin story to strengths" },
+]
+
+const artArr = [
+    { slug: "character", title: "Characters", description: "Generate art for your game characters" },
+    { slug: "equipment", title: "Equipment", description: "Generate art for your game equipment" },
+    { slug: "environment", title: "Environment", description: "Generate art for your game world and environment" },
+]
+
+const contentArr = [
+    { slug: "instagram", title: "Instagram Post", description: "Generate an engaging instagram post" },
+    { slug: "twitter", title: "Twitter Post", description: "Generate an engaging twitter post" },
+    { slug: "thread", title: "Twitter Thread", description: "Generate an engaging twitter thread" },
 ]
 
 const Create = () => {
@@ -33,17 +29,17 @@ const Create = () => {
     <div className="container">
         <div className="header">
             <div className="header-title">
-                <h1>Create 🪄</h1>
+                <h1>Craft 🪄</h1>
             </div>
             <div className="header-subtitle">
-                <h2>Create content effortlessly with AI tools</h2>
+                <h2>Create imaginative worlds, immersive stories, and viral content</h2>
             </div>
         </div>
         <div className="create-container">
-            <div><Section arr={brandArr} heading="Branding" slug="brand" /></div>
-            <div><Section arr={copyArr} heading="Copywriting" slug="copy" /></div>
-            <div><Section arr={hrArr} heading="Hiring" slug="hr" /></div>
-            <div><Section arr={gameArr} heading="Gaming" slug="game" /></div>
+            <div><Section arr={conceptArr} heading="Concept" slug="concept" /></div>
+            <div><Section arr={storyArr} heading="Story" slug="story" /></div>
+            <div><Section arr={artArr} heading="Art" slug="art" /></div>
+            <div><Section arr={contentArr} heading="Content" slug="content" /></div>
         </div>
     </div>
   )
