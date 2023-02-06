@@ -16,7 +16,7 @@ const Section = ({ arr, heading, slug }) => {
         return (
             <div key={`${e.category}-${i}-${e.slug}`}>
                 <Link 
-                    to={`/create/${slug}/${e.slug}`} 
+                    to={`/craft/${slug}/${e.slug}`} 
                     state={itemData}
                 >
                     {e.title}

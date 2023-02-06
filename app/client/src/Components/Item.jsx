@@ -12,7 +12,7 @@ const Item = (props) => {
             <h1>{propsData.heading}</h1>
             <h2>{propsData.description}</h2>
             <div className="container">
-                /create/{propsData.slugA}/{propsData.slugB}
+                /craft/{propsData.slugA}/{propsData.slugB}
                 <Form />
             </div>
         </div>
