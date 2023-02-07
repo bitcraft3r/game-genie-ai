@@ -1,14 +1,16 @@
 import React from 'react'
 import { useState } from 'react';
 
-const Form = () => {
+const Form = ({ prefix }) => {
     const [input, setInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [output, setOutput] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(`Final Prompt:`, `promptPrefix ${input} promptSuffix`);
+
+        let finalInput = `${prefix} ${input}`;
+        console.log(`final prompt`, finalInput);
 
         setInput("");
         setIsLoading(true);
@@ -20,7 +22,7 @@ const Form = () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                userPrompt: input
+                userPrompt: finalInput
             })
         });
 
@@ -34,10 +36,7 @@ const Form = () => {
     }
 
     return (
-        <div>
-            <div className="container">
-                <p>{output}</p>
-            </div>
+        <div className="container">
             <div className="form-container">
                 <form onSubmit={handleSubmit}>
                     <textarea
@@ -55,6 +54,9 @@ const Form = () => {
                         <button>Generate</button>
                     )}
                 </form>
+            </div>
+            <div>
+                <p>Output: {output}</p>
             </div>
         </div>
     )

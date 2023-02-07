@@ -12,9 +12,9 @@ const Item = (props) => {
             <h1>{propsData.heading}</h1>
             <h2>{propsData.description}</h2>
             <div className="container">
-                /craft/{propsData.slugA}/{propsData.slugB}
-                <Form />
+                promptPrefix: <code>{propsData.prefix}</code>
             </div>
+            <Form prefix={propsData.prefix} />
         </div>
     )
 }

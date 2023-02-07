@@ -8,9 +8,8 @@ const Section = ({ arr, heading, slug }) => {
             // https://www.positronx.io/react-router-dom-send-or-get-props-state-with-link-tutorial/
             const itemData = {
             heading: e.title,
-            slugA: slug,
-            slugB: e.slug,
-            description: e.description
+            description: e.description,
+            prefix: e.prefix,
         }
 
         return (

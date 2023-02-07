@@ -42,8 +42,8 @@ app.post('/craft/', async (req, res) => {
     const { userPrompt } = req.body;
     const response = await openai.createCompletion({
         model: "text-davinci-003",
-        prompt: `Me: ${userPrompt}.\n
-        Saige (award-winning Hollywood screenwriter, expert at creating immerseive game lore and storylines):`,
+        prompt: `You are Saige, an award-winning Hollywood screenwriter, expert at creating immerseive game lore and storylines. \n
+        Me: ${userPrompt}.`,
         max_tokens: 128,
         temperature: 0.5,
     });
