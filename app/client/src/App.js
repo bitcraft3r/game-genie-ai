@@ -25,7 +25,7 @@ function App() {
         <Route path="/chat" element={<Chat />}></Route>
         <Route path="/dream" element={<Dream />}></Route>
         <Route path="/craft" element={<Craft />}></Route>
-        <Route path="/craft/:id/:id" element={<Item />}></Route>
+        <Route path="/craft/:id/:id2" element={<Item />}></Route>
       </Routes>
     </>
   );
