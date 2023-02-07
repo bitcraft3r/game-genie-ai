@@ -1,4 +1,8 @@
-# aira-chatbot-openai-react
+# Game Genie AI
+
+Toolkit for game creators to effortlessly generate concepts, stories, art and content.
+
+## Setup
  
 ### Setting Up Frontend
 
@@ -10,7 +14,6 @@
 
 4. `npm i react-csv` to install react-csv.
 
-
 ### Setting Up Backend
 
 In the `server` folder:
@@ -21,29 +24,34 @@ In the `server` folder:
 
 3. setting up react router: `npm i react-router react-router-dom`
 
-### Deploying backend to Vercel
+## Resources
 
+1. Documentation
+- [OpenAI API](https://beta.openai.com/docs/introduction)
+- [Huggingface Inference API](https://huggingface.co/docs/api-inference/index)
+
+2. Video tutorials
+- [Let's Build ChatGPT 2.0 with React JS and OpenAI on your PC!](https://youtu.be/qwM23_kF4v4)
+- [How To Use ChatGPT With JavaScript (NodeJS & Express)](https://youtu.be/UQamG425RD0)
+
+3. Buildspace tutorials
+- [Build your own AI writing assistant w/ GPT-3](https://buildspace.so/builds/ai-writer)
+- [Build your own AI Avatar generator w/ Stable Diffusion](https://buildspace.so/builds/ai-avatar)
+
+4. TODO: Deploying backend to Vercel 
 - https://vercel.com/guides/using-express-with-vercel
 - https://shadowsmith.com/how-to-deploy-an-express-api-to-vercel
 - https://dev.to/andrewbaisden/how-to-deploy-a-node-express-app-to-vercel-2aa
 
-## Resources
-
-1. OpenAI API: https://beta.openai.com/docs/introduction
-
-2. Video tutorials:
-- Let's Build ChatGPT 2.0 with React JS and OpenAI on your PC!: https://youtu.be/qwM23_kF4v4
-- How To Use ChatGPT With JavaScript (NodeJS & Express): https://youtu.be/UQamG425RD0
-
-3. Fine-tuning
+5. Stretch: Fine-tuning OpenAI models
 - https://www.mlq.ai/fine-tuning-gpt-3-question-answer-bot/
 - https://github.com/openai/openai-cookbook/blob/main/examples/Question_answering_using_embeddings.ipynb
 - https://github.com/openai/openai-cookbook/blob/57024c70cff473fb520105e9aea3ab4e514be0df/examples/fine-tuned_qa/olympics-1-collect-data.ipynb
 
-3a) Preparing Dataset for fine-tuning
+(i) Preparing Dataset for fine-tuning
 - https://www.reddit.com/r/GPT3/comments/10jjbf1/using_davinci003_with_our_docs_for_automated/
 - https://www.patterns.app/blog/2022/12/21/finetune-llm-tech-support/
 
-3b) No-code model builder for fine-tuning
+(ii) No-code model builder for fine-tuning
 - https://www.reddit.com/r/OpenAI/comments/zpv2fy/why_arent_more_people_creating_custom_openai/
 - https://no-code-ai-model-builder.com/custom-models
