@@ -24,7 +24,7 @@ const contentArr = [
     { slug: "thread", title: "Twitter Thread", description: "Generate an engaging twitter thread" },
 ]
 
-const Create = () => {
+const Craft = () => {
   return (
     <div className="container">
         <div className="header">
@@ -45,4 +45,4 @@ const Create = () => {
   )
 }
 
-export default Create
+export default Craft
