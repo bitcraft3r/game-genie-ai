@@ -13,7 +13,7 @@ const Item = (props) => {
             <h2>{propsData.description}</h2>
             <div className="container">
                 <p>promptPrefix: <code>{propsData.prefix}</code></p>
-                {propsData.type === "text" ? <Form prefix={propsData.prefix} placeholder={propsData.placeholder} /> : <p>Coming Soon...</p> }
+                {propsData.type === "text" ? <Form prefix={propsData.prefix} placeholder={propsData.placeholder} tokens={propsData.tokens} /> : <p>Coming Soon...</p> }
             </div>
         </div>
     )

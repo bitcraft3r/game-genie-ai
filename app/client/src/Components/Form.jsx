@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 
-const Form = ({ prefix, placeholder }) => {
+const Form = ({ prefix, placeholder, tokens }) => {
     const [input, setInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [output, setOutput] = useState("");
@@ -24,7 +24,8 @@ const Form = ({ prefix, placeholder }) => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                userPrompt: finalInput
+                userPrompt: finalInput,
+                userTokens: tokens
             })
         });
 

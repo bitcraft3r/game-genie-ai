@@ -39,12 +39,14 @@ app.post('/chat', async (req, res) => {
 });
 
 app.post('/craft/', async (req, res) => {
-    const { userPrompt } = req.body;
+    const { userPrompt, userTokens } = req.body;
+    console.log(`prompt received on server`, userPrompt)
+    console.log(`tokens received on server`, userTokens)
     const response = await openai.createCompletion({
         model: "text-davinci-003",
-        prompt: `You are Saige, an award-winning Hollywood screenwriter, expert at creating immerseive game lore and storylines. \n
+        prompt: `You are Saige, an award-winning Hollywood screenwriter, expert at creating immerseive game lore and storylines, and engaging content. \n
         Me: ${userPrompt}.`,
-        max_tokens: 128,
+        max_tokens: userTokens, // TODO: add a default = 128, if userTokens not provided
         temperature: 0.5,
     });
     res.json({
