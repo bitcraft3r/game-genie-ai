@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { CSVLink } from "react-csv";
+import CSV from './CSV';
 
 const Chat = () => {
     const [settingsName, setSettingsName] = useState("Aira");
@@ -57,11 +57,6 @@ const Chat = () => {
         console.log(data.message);
     }
 
-    // Get date in YYYY-MM-DD format
-    // https://stackoverflow.com/a/29774197
-    let currentDate = new Date();
-    let formattedDate = currentDate.toISOString().split('T')[0];
-
     return (
         <div className="container">
             <div className="header">
@@ -100,15 +95,7 @@ const Chat = () => {
                 </form>
             </div>
             <div>
-                <button>
-                    <CSVLink 
-                        data={chatLog}
-                        filename={`insprAI-chat-with-aira-${formattedDate}.csv`}
-                        target="_blank"
-                    >
-                        Download CSV
-                    </CSVLink>
-                </button>
+                <CSV slug="chat" data={chatLog} />
                 <button onClick={clearChat}>Clear</button>
             </div>
             <br />
