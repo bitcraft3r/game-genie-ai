@@ -5,6 +5,7 @@ const Form = ({ prefix, placeholder }) => {
     const [input, setInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [output, setOutput] = useState("");
+    const [finalPrompt, setFinalPrompt] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -12,6 +13,7 @@ const Form = ({ prefix, placeholder }) => {
         let finalInput = `${prefix} ${input}`;
         console.log(`final prompt`, finalInput);
 
+        setFinalPrompt(input)
         setInput("");
         setIsLoading(true);
 
@@ -56,6 +58,7 @@ const Form = ({ prefix, placeholder }) => {
                 </form>
             </div>
             <div>
+                <p>Input: {finalPrompt}</p>
                 <p>Output: {output}</p>
             </div>
         </div>
