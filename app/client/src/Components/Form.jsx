@@ -5,8 +5,6 @@ import CSV from './CSV';
 const Form = ({ prefix, placeholder, tokens, slug }) => {
     const [input, setInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-    const [output, setOutput] = useState("");
-    const [finalPrompt, setFinalPrompt] = useState("");
 
     const [chatLog, setChatLog] = useState([]);
 
@@ -14,13 +12,10 @@ const Form = ({ prefix, placeholder, tokens, slug }) => {
         e.preventDefault();
 
         let finalInput = `${prefix} ${input}`;
-        console.log(`final prompt`, finalInput);
-        
-        setFinalPrompt(input)
+        console.log(`prefix + userPrompt`, finalInput);
         
         setIsLoading(true);
         
-        // await
         const response = await fetch("http://localhost:3080/craft", {
             method: "POST",
             headers: {
@@ -33,9 +28,6 @@ const Form = ({ prefix, placeholder, tokens, slug }) => {
         });
 
         const data = await response.json();
-        
-        // console.log(`returned data`, data.message);
-        setOutput(data.message);
 
         let chatLogNew = [...chatLog, {
             input: `${input}`, output: `${data.message}`
