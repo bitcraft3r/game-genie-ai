@@ -1,22 +1,25 @@
 import React from 'react'
 import { useState } from 'react';
+import CSV from './CSV';
 
-const Form = ({ prefix, placeholder, tokens }) => {
+const Form = ({ prefix, placeholder, tokens, slug }) => {
     const [input, setInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [output, setOutput] = useState("");
     const [finalPrompt, setFinalPrompt] = useState("");
+
+    const [chatLog, setChatLog] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         let finalInput = `${prefix} ${input}`;
         console.log(`final prompt`, finalInput);
-
+        
         setFinalPrompt(input)
-        setInput("");
+        
         setIsLoading(true);
-
+        
         // await
         const response = await fetch("http://localhost:3080/craft", {
             method: "POST",
@@ -34,12 +37,36 @@ const Form = ({ prefix, placeholder, tokens }) => {
         // console.log(`returned data`, data.message);
         setOutput(data.message);
 
+        let chatLogNew = [...chatLog, {
+            input: `${input}`, output: `${data.message}`
+        }]
+        
+        setChatLog(chatLogNew);
+
+        setInput("");
         setIsLoading(false);
 
     }
 
     return (
         <div>
+            <div className="messages-container">
+                <div className="messages-log">
+                    <p>Chat Log</p>
+                    {chatLog.map((message, index) => {
+                        return (
+                            <div key={index}>
+                                <div className="messages-item">
+                                    Me: {message.input}
+                                </div>
+                                <div className="messages-item">
+                                    Genie: <code>{message.output}</code>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
             <div className="form-container">
                 <form onSubmit={handleSubmit}>
                     <textarea
@@ -58,10 +85,7 @@ const Form = ({ prefix, placeholder, tokens }) => {
                     )}
                 </form>
             </div>
-            <div>
-                <p>Input: {finalPrompt}</p>
-                <p>Output: {output}</p>
-            </div>
+            <CSV slug={slug} data={chatLog} />
         </div>
     )
 }

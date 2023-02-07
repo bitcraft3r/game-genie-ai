@@ -13,6 +13,7 @@ const Section = ({ arr, heading, slug }) => {
             type: e.type,
             placeholder: e.placeholder,
             tokens: e.tokens,
+            slug: e.slug,
         }
 
         return (
