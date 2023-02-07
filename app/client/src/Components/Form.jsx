@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 
-const Form = ({ prefix }) => {
+const Form = ({ prefix, placeholder }) => {
     const [input, setInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [output, setOutput] = useState("");
@@ -36,12 +36,12 @@ const Form = ({ prefix }) => {
     }
 
     return (
-        <div className="container">
+        <div>
             <div className="form-container">
                 <form onSubmit={handleSubmit}>
                     <textarea
                         value={input}
-                        placeholder="Write your prompt..."
+                        placeholder={placeholder}
                         onChange={(e) => setInput(e.target.value)}
                         className="form-input"
                     ></textarea>

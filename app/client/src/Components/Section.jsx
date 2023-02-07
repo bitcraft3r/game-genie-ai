@@ -11,6 +11,7 @@ const Section = ({ arr, heading, slug }) => {
             description: e.description,
             prefix: e.prefix,
             type: e.type,
+            placeholder: e.placeholder,
         }
 
         return (
