@@ -14,7 +14,7 @@ const Item = (props) => {
             <div className="container">
                 promptPrefix: <code>{propsData.prefix}</code>
             </div>
-            <Form prefix={propsData.prefix} />
+            {propsData.type === "text" ? <Form prefix={propsData.prefix} /> : <p>Coming Soon...</p> }
         </div>
     )
 }
