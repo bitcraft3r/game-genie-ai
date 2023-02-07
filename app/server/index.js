@@ -38,6 +38,20 @@ app.post('/chat', async (req, res) => {
     })
 });
 
+app.post('/craft/', async (req, res) => {
+    const { userPrompt } = req.body;
+    const response = await openai.createCompletion({
+        model: "text-davinci-003",
+        prompt: `Me: ${userPrompt}.\n
+        Saige (award-winning Hollywood screenwriter, expert at creating immerseive game lore and storylines):`,
+        max_tokens: 128,
+        temperature: 0.5,
+    });
+    res.json({
+        message: response.data.choices[0].text
+    })
+});
+
 app.post('/dream', async (req, res) => {
     console.log('input req', req.body);
     const input = req.body.input;

@@ -4,6 +4,7 @@ import { useState } from 'react';
 const Form = () => {
     const [input, setInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    const [output, setOutput] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -13,7 +14,20 @@ const Form = () => {
         setIsLoading(true);
 
         // await
+        const response = await fetch("http://localhost:3080/craft", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                userPrompt: input
+            })
+        });
 
+        const data = await response.json();
+        
+        // console.log(`returned data`, data.message);
+        setOutput(data.message);
 
         setIsLoading(false);
 
@@ -21,6 +35,9 @@ const Form = () => {
 
     return (
         <div>
+            <div className="container">
+                <p>{output}</p>
+            </div>
             <div className="form-container">
                 <form onSubmit={handleSubmit}>
                     <textarea
