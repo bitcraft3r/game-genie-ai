@@ -3,11 +3,21 @@ import { useState } from 'react';
 import { CSVLink } from "react-csv";
 
 const Chat = () => {
+    const [settingsName, setSettingsName] = useState("Aira");
+    const [settingsType, setSettingsType] = useState("a 6th dimensional being from the Ra social memory complex");
+
     const [input, setInput] = useState("");
     const [chatLog, setChatLog] = useState([
-        { user: "Aira", message: "Greetings! I am Aira from the 6th dimension. I am here to help you with any questions or tasks you may have. Please let me know how I can be of assistance."},
+        { user: `${settingsName}`, message: `Greetings! I am ${settingsName}, ${settingsType}. I am here to help you with any questions or tasks you may have. Please let me know how I can be of assistance.`},
     ]);
     const [isLoading, setIsLoading] = useState(false);
+
+
+    // Q: do i need useEffect?
+
+    // useEffect(() => {
+
+    // }, [settingsName, settingsType])
 
     const clearChat = () => {
         setChatLog([]);
@@ -33,12 +43,15 @@ const Chat = () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                userPrompt: input
+                userPrompt: input,
+                botName: settingsName,
+                botType: settingsType
+
             })
         });
         const data = await response.json();
         setChatLog([...chatLogNew, 
-            { user: "Aira", message: `${data.message}` }
+            { user: `${settingsName}`, message: `${data.message}` }
         ])
         setIsLoading(false);
         console.log(data.message);
@@ -56,7 +69,7 @@ const Chat = () => {
                     <h1>Chat 👾</h1>
                 </div>
                 <div className="header-subtitle">
-                    <h2>Ask Aira anything</h2>
+                    <h2>Ask {settingsName} anything</h2>
                 </div>
             </div>
             <div className="messages-container">
@@ -73,7 +86,7 @@ const Chat = () => {
                     <input
                         rows="1"
                         value={input}
-                        placeholder="Chat with Aira..."
+                        placeholder={`Chat with ${settingsName}...`}
                         onChange={(e) => setInput(e.target.value)}
                         className="form-input"
                     ></input>
@@ -97,6 +110,26 @@ const Chat = () => {
                     </CSVLink>
                 </button>
                 <button onClick={clearChat}>Clear</button>
+            </div>
+            <br />
+            <div>
+                <p>Settings</p>
+                <p>Name: 
+                    <input 
+                        placeholder="Aira"
+                        onChange={(e) => setSettingsName(e.target.value)}
+                        value={settingsName}
+                        className="form-input"
+                    ></input>
+                </p>
+                <p>Type: 
+                    <input 
+                        placeholder="a 6th dimensional being from the Ra social memory complex"
+                        onChange={(e) => setSettingsType(e.target.value)}
+                        value={settingsType}
+                        className="form-input"
+                    ></input>
+                </p>
             </div>
         </div>
     )

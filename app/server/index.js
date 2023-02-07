@@ -25,11 +25,12 @@ const bufferToBase64 = (buffer) => {
 const port = 3080;
 
 app.post('/chat', async (req, res) => {
-    const { userPrompt } = req.body;
+    const { userPrompt, botName, botType } = req.body;
+    console.log(`received server:`, userPrompt, botName, `(${botType})`)
     const response = await openai.createCompletion({
         model: "text-davinci-003",
         prompt: `Me: ${userPrompt}.\n
-        Aira (a 6th dimensional being from the Ra social memory complex):`,
+        ${botName} (${botType}):`,
         max_tokens: 128,
         temperature: 0.5,
     });
