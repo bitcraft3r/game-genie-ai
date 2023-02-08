@@ -29,6 +29,16 @@ In the `server` folder:
 1. `npm i firebase`
 2. `npm i react-google-button react-twitter-button` 
 
+### Setting up Firebase CLI for Deploying Express API
+
+1. `npm i -g firebase-tools` to install firebase tools globally.
+2. `firebase init hosting` in the folder for the new API.
+3. `cd functions`
+4. `npm install express cors`
+5. `cd ..`
+6. `firebase deploy`
+
+
 ## Resources
 
 1. Documentation
@@ -47,6 +57,9 @@ In the `server` folder:
 - [Google Authentication With React JS & Firebase - Sign In With Google - Firebase v9](https://www.youtube.com/watch?v=cZAnibwI9u8)
 - [Add Firebase to your JavaScript project](https://firebase.google.com/docs/web/setup)
 - [Authenticate Using Google with JavaScript](https://firebase.google.com/docs/auth/web/google-signin)
+
+5. Firebase deploy Express API 
+- [Deploy an Express API on Firebase hosting](https://medium.com/boca-code/the-basic-process-is-that-we-will-use-firebase-cloud-functions-to-create-a-single-function-app-13ba3b852077)
 
 A) TODO: Deploying backend to Vercel 
 - https://vercel.com/guides/using-express-with-vercel
