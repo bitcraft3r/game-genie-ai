@@ -24,6 +24,11 @@ In the `server` folder:
 
 3. setting up react router: `npm i react-router react-router-dom`
 
+### Setting up Firebase Auth
+
+1. `npm i firebase`
+2. `npm i react-google-button react-twitter-button` 
+
 ## Resources
 
 1. Documentation
@@ -38,12 +43,17 @@ In the `server` folder:
 - [Build your own AI writing assistant w/ GPT-3](https://buildspace.so/builds/ai-writer)
 - [Build your own AI Avatar generator w/ Stable Diffusion](https://buildspace.so/builds/ai-avatar)
 
-4. TODO: Deploying backend to Vercel 
+4. Firebase Auth
+- [Google Authentication With React JS & Firebase - Sign In With Google - Firebase v9](https://www.youtube.com/watch?v=cZAnibwI9u8)
+- [Add Firebase to your JavaScript project](https://firebase.google.com/docs/web/setup)
+- [Authenticate Using Google with JavaScript](https://firebase.google.com/docs/auth/web/google-signin)
+
+A) TODO: Deploying backend to Vercel 
 - https://vercel.com/guides/using-express-with-vercel
 - https://shadowsmith.com/how-to-deploy-an-express-api-to-vercel
 - https://dev.to/andrewbaisden/how-to-deploy-a-node-express-app-to-vercel-2aa
 
-5. Stretch: Fine-tuning OpenAI models
+B) Stretch: Fine-tuning OpenAI models
 - https://www.mlq.ai/fine-tuning-gpt-3-question-answer-bot/
 - https://github.com/openai/openai-cookbook/blob/main/examples/Question_answering_using_embeddings.ipynb
 - https://github.com/openai/openai-cookbook/blob/57024c70cff473fb520105e9aea3ab4e514be0df/examples/fine-tuned_qa/olympics-1-collect-data.ipynb

@@ -35,6 +35,12 @@
   padding: 0 1rem;
 }
 
+.nav-button {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+}
+
 .container, .messages-container, .form-container, .dream-container, .image-container, .create-container {
   border: 1px solid #ccc;
   padding: 1rem;
