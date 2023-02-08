@@ -36,8 +36,8 @@ const Chat = () => {
         setIsLoading(true);
 
         // const response = await fetch("https://aira-chatbot-openai-react-backend.vercel.app:3080/chat", {
-        // const response = await fetch("https://insprai-server-production.up.railway.app:3080/chat", {
-        const response = await fetch("http://localhost:3080/chat", {
+        const response = await fetch("https://ggai-server.web.app:3080/chat", {
+        // const response = await fetch("http://localhost:3080/chat", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
