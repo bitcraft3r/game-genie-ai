@@ -42,6 +42,12 @@ Configuring Server:
 7. in `functions` folder, use `npm i dotenv body-parser openai`.
 Deployed to: https://ggai-server.web.app/.
 
+### Deploy frontend to Firebase
+
+Deployed to: https://gamegenieai.web.app/
+
+- [Publish your React app to FREE Firebase Hosting](https://jonathans199.medium.com/publish-your-react-app-to-free-firebase-hosting-c4aa38b84a5e)
+
 ## Resources
 
 1. Documentation
