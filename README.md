@@ -38,6 +38,9 @@ In the `server` folder:
 5. `cd ..`
 6. `firebase deploy`
 
+Configuring Server:
+7. in `functions` folder, use `npm i dotenv body-parser openai`.
+Deployed to: https://ggai-server.web.app/.
 
 ## Resources
 
