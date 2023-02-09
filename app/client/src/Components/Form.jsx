@@ -2,6 +2,8 @@ import React from 'react'
 import { useState } from 'react';
 import CSV from './CSV';
 import Button from './Button';
+import userPFP from '../assets/adventurer.png'
+import saigePFP from '../assets/saige.png'
 
 const Form = ({ prefix, placeholder, tokens, slug }) => {
     const [input, setInput] = useState("");
@@ -46,15 +48,20 @@ const Form = ({ prefix, placeholder, tokens, slug }) => {
         <div>
             <div className="messages-container">
                 <div className="messages-log">
-                    <p>Chat Log</p>
+                    <div className="messages-item">
+                        <img src={saigePFP} />
+                        Saige: <code>Your wish is my command!</code>
+                    </div>
                     {chatLog.map((message, index) => {
                         return (
                             <div key={index}>
                                 <div className="messages-item">
+                                    <img src={userPFP} />
                                     Me: {message.input}
                                 </div>
                                 <div className="messages-item">
-                                    Genie: <code>{message.output}</code>
+                                    <img src={saigePFP} />
+                                    Saige: <code>{message.output}</code>
                                 </div>
                             </div>
                         )
