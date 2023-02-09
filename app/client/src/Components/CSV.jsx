@@ -11,7 +11,7 @@ const CSV = ({ slug, data }) => {
     let formattedDate = currentDate.toISOString().split('T')[0];
     const statsRef = doc(db, "statistics", "downloads");
 
-    // Atomically increment the population of the city by 50.
+    // Atomically increment the count of CSV downloads.
     const updateCountCSV = async () => {
         await updateDoc(statsRef, {
             countCSV: increment(1)
