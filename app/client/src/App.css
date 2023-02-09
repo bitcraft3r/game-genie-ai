@@ -96,6 +96,26 @@
 }
 
 .footer {
-  text-align: center;
-  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+  padding: 0 2rem;
+}
+
+.footer div, a, p {
+  display: flex;
+  flex: 1;
+}
+
+.footer div {
+  justify-content: left;
+}
+
+.footer a {
+  justify-content: center;
+}
+
+.footer p {
+  justify-content: right;
 }
