@@ -23,7 +23,7 @@ function App() {
         <Route path="/chat" element={<Chat />}></Route>
         <Route path="/dream" element={<Dream />}></Route>
         <Route exact path="/craft" element={<Craft />}></Route>
-        <Route path="/craft/:id/:id2" element={<Item />}></Route>
+        <Route path="/craft/:id/:id2" element={<Protected><Item /></Protected>}></Route>
         <Route path="/signin" element={<Signin />}></Route>
         <Route path="/account" element={<Protected><Account /></Protected>}></Route>
       </Routes>
