@@ -30,7 +30,7 @@ const Item = () => {
     const locationPathname = location.pathname;
     
     // get all individual items from global context
-    const items = useContext(AppContext);
+    const contextProps = useContext(AppContext);
     
     const comparePaths = (e) => {
         // match pathnames from useContext vs useLocation
@@ -39,7 +39,7 @@ const Item = () => {
     }
 
     // get the itemData for when pathnames match
-    const currentItem = items.items.find(comparePaths);
+    const currentItem = contextProps[2].find(comparePaths);
     const itemData = currentItem.data;
 
     return (
