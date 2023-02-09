@@ -7,7 +7,8 @@ const bodyParser = require('body-parser');
 const { Configuration, OpenAIApi } = require("openai");
 
 const app = express();
-app.use(cors());
+// app.use(cors());
+app.use(cors({ origin: "*" }));
 app.use(bodyParser.json());
 
 const configuration = new Configuration({
@@ -52,7 +53,7 @@ app.post('/chat', async (req, res) => {
     })
 });
 
-app.post('/craft/', async (req, res) => {
+app.post('/craft', async (req, res) => {
     const { userPrompt, userTokens } = req.body;
     console.log(`prompt received on server`, userPrompt)
     console.log(`tokens received on server`, userTokens)

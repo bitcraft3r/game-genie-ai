@@ -12,7 +12,8 @@ const openai = new OpenAIApi(configuration);
 
 const app = express();
 app.use(bodyParser.json());
-app.use(cors());
+// app.use(cors());
+app.use(cors({ origin: "*" }));
 
 const bufferToBase64 = (buffer) => {
   let arr = new Uint8Array(buffer);
@@ -39,7 +40,7 @@ app.post('/chat', async (req, res) => {
     })
 });
 
-app.post('/craft/', async (req, res) => {
+app.post('/craft', async (req, res) => {
     const { userPrompt, userTokens } = req.body;
     console.log(`prompt received on server`, userPrompt)
     console.log(`tokens received on server`, userTokens)
