@@ -3,6 +3,7 @@ import { useState } from 'react';
 import CSV from './CSV';
 import userPFP from '../assets/adventurer.png'
 import airaPFP from '../assets/aira.png'
+import Button from './Button';
 
 const Chat = () => {
     const [settingsName, setSettingsName] = useState("Aira");
@@ -96,7 +97,7 @@ const Chat = () => {
                             <div className="loader"></div>
                         </div>
                     ) : (
-                        <button>Submit</button>
+                        <Button name="Submit" type="text" />
                     )}
                 </form>
             </div>

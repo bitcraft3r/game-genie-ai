@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Button from './Button';
 import PNG from './PNG';
 
 const FormImg = ({ suffix, placeholder, slug }) => {
@@ -134,7 +135,7 @@ const FormImg = ({ suffix, placeholder, slug }) => {
                             <div className="loader"></div>
                         </div>
                         ) : (
-                        <button>Generate</button>
+                        <Button name="Generate" type="image" />
                         )}
                     </div>
                     </div>

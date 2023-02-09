@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
+import Button from './Button';
 import PNG from './PNG';
 // import { saveAs } from 'file-saver';
 
@@ -143,7 +144,7 @@ const Dream = () => {
                     <div className="loader"></div>
                   </div>
                 ) : (
-                  <button>Generate</button>
+                  <Button name="Generate" type="image" />
                 )}
               </div>
             </div>

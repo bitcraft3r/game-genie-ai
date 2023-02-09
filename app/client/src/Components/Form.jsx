@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import CSV from './CSV';
+import Button from './Button';
 
 const Form = ({ prefix, placeholder, tokens, slug }) => {
     const [input, setInput] = useState("");
@@ -74,7 +75,7 @@ const Form = ({ prefix, placeholder, tokens, slug }) => {
                             <div className="loader"></div>
                         </div>
                     ) : (
-                        <button>Generate</button>
+                        <Button name="Generate" type="text" />
                     )}
                 </form>
             </div>
