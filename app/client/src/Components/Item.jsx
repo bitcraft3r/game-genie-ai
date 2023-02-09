@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { useLocation } from 'react-router';
 import Form from './Form';
 import { AppContext } from '../context';
+import FormImg from './FormImg';
 
 /**
  * Problem:
@@ -47,7 +48,7 @@ const Item = () => {
             <h1>{itemData.title}</h1>
             <h2>{itemData.description}</h2>
             <div className="container">
-                {itemData.type === "text" ? <Form prefix={itemData.prefix} placeholder={itemData.placeholder} tokens={itemData.tokens} slug={itemData.slug} /> : <p>Coming Soon...</p> }
+                {itemData.type === "text" ? <Form prefix={itemData.prefix} placeholder={itemData.placeholder} tokens={itemData.tokens} slug={itemData.slug} /> : <FormImg /> }
             </div>
         </div>
     )
