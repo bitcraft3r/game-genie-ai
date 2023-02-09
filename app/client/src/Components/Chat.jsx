@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import CSV from './CSV';
+import userPFP from '../assets/adventurer.png'
+import airaPFP from '../assets/aira.png'
 
 const Chat = () => {
     const [settingsName, setSettingsName] = useState("Aira");
@@ -71,7 +73,11 @@ const Chat = () => {
                 <div className="messages-log">
                     {chatLog.map((message, index) => {
                         return (
-                            <div key={index} className="messages-item">{message.user}: {message.message}</div>
+                            <div key={index} className="messages-item">
+                                {message.user === "Me" ? <img src={userPFP} /> : <img src={airaPFP} /> }
+                                {" "}
+                                {message.user}: {message.message}
+                                </div>
                         )
                     })}
                 </div>

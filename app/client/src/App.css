@@ -56,6 +56,11 @@
   padding: 0.25rem;   
 }
 
+.messages-item img {
+  width: 50px;
+  border-radius: 50%;
+}
+
 .form-input, .dream-container textarea {
   width: 75%;
 }
