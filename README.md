@@ -70,6 +70,9 @@ Deployed to: https://gamegenieai.web.app/
 5. Firebase deploy Express API 
 - [Deploy an Express API on Firebase hosting](https://medium.com/boca-code/the-basic-process-is-that-we-will-use-firebase-cloud-functions-to-create-a-single-function-app-13ba3b852077)
 
+6. useContext for global state
+- [Beginners Guide to React’s Context API](https://blog.devgenius.io/beginners-guide-to-reacts-context-api-d2fafc89404f)
+
 A) TODO: Deploying backend to Vercel 
 - https://vercel.com/guides/using-express-with-vercel
 - https://shadowsmith.com/how-to-deploy-an-express-api-to-vercel

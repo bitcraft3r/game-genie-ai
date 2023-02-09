@@ -1,21 +1,54 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useLocation } from 'react-router';
 import Form from './Form';
+import { AppContext } from '../context';
+
+/**
+ * Problem:
+ * - Item.jsx gets props passed from Section.jsx.
+ * - Without the props, Item.jsx does not render properly.
+ *      - If enter URL directly to individual item page, it will have an error, because the page did not receive props.
+ * 
+ * Solution:
+ * 
+ * Get relevant individual item data, for the item that matches the url path.
+ * - useLocation().pathname => gets current url path.
+ * - Array of all individual items available in global state (useContext).
+ * - Each item object contains `section` and `slug` to compare with the url path.
+ * - Find the one item /section/slug that matches url path, and return that item data.
+ * 
+ * With this, individual item pages will render without error no matter if I navigate to it by:
+ * a) Going from /craft/ and clicking on each individual item, or
+ * b) Going to /craft/section/slug by entering the url directly.
+ * 
+ * */ 
+
 
 const Item = () => {
     const location = useLocation();
-    const propsData = location.state;
-    console.log(`propsData in Items.jsx`, propsData);
-    console.log(`promptPrefix in Items.jsx`, propsData.prefix);
+    // get current pathname e.g. /craft/concept/idea
+    const locationPathname = location.pathname;
+    
+    // get all individual items from global context
+    const items = useContext(AppContext);
+    
+    const comparePaths = (e) => {
+        // match pathnames from useContext vs useLocation
+        let contextPathname = `/craft/${e.data.section}/${e.data.slug}`;
+        return contextPathname === locationPathname;
+    }
 
-    // console.log(`props in Items.jsx`, props);
+    // get the itemData for when pathnames match
+    const currentItem = items.items.find(comparePaths);
+    const itemData = currentItem.data;
+    console.log('itemData', itemData);
 
     return (
         <div className="container">
-            <h1>{propsData.heading}</h1>
-            <h2>{propsData.description}</h2>
+            <h1>{itemData.title}</h1>
+            <h2>{itemData.description}</h2>
             <div className="container">
-                {propsData.type === "text" ? <Form prefix={propsData.prefix} placeholder={propsData.placeholder} tokens={propsData.tokens} slug={propsData.slug} /> : <p>Coming Soon...</p> }
+                {itemData.type === "text" ? <Form prefix={itemData.prefix} placeholder={itemData.placeholder} tokens={itemData.tokens} slug={itemData.slug} /> : <p>Coming Soon...</p> }
             </div>
         </div>
     )
