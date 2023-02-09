@@ -73,6 +73,13 @@ Deployed to: https://gamegenieai.web.app/
 6. useContext for global state
 - [Beginners Guide to React’s Context API](https://blog.devgenius.io/beginners-guide-to-reacts-context-api-d2fafc89404f)
 
+7. Firebase Firestore for CRUD to Read and Update csv & png download stats:
+- [CRUD Tutorial Using React + Firebase | Firebase 9 and Firestore Tutorial](https://youtu.be/jCY6DH8F4oc)
+- [Documentation: Get a document](https://firebase.google.com/docs/firestore/query-data/get-data#get_a_document)
+- [Documentation: Update document & increment](https://firebase.google.com/docs/firestore/manage-data/add-data#increment_a_numeric_value)
+
+## TODO
+
 A) TODO: Deploying backend to Vercel 
 - https://vercel.com/guides/using-express-with-vercel
 - https://shadowsmith.com/how-to-deploy-an-express-api-to-vercel

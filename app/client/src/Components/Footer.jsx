@@ -1,13 +1,10 @@
-import React, { useContext } from 'react'
-import { AppContext } from '../context';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
-
-    const [counterCSV] = useContext(AppContext);
-
     return (
         <div className="footer">
-            CSV Downloaded: {counterCSV}
+            <Link to="/stats">Statistics</Link>
         </div>
     )
 }

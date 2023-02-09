@@ -39,7 +39,7 @@ const Item = () => {
     }
 
     // get the itemData for when pathnames match
-    const currentItem = contextProps[2].find(comparePaths);
+    const currentItem = contextProps[0].find(comparePaths);
     const itemData = currentItem.data;
 
     return (

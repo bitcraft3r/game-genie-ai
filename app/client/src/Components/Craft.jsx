@@ -5,7 +5,7 @@ import { AppContext } from '../context';
 const Craft = () => {
 
     const contextProps = useContext(AppContext);
-    const itemsArr = contextProps[2];
+    const itemsArr = contextProps[0];
 
     const conceptArr = itemsArr.filter((e, i) => {
         return e.data.section === "concept";

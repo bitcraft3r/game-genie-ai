@@ -8,6 +8,7 @@ import Item from './Components/Item';
 import Signin from './Components/Signin';
 import Account from './Components/Account';
 import Protected from './Components/Protected';
+import Stats from './Components/Stats';
 import Footer from './Components/Footer';
 import { Route, Routes } from 'react-router-dom';
 import { AuthContextProvider } from './context/AuthContext';
@@ -26,6 +27,7 @@ function App() {
         <Route exact path="/craft" element={<Craft />}></Route>
         <Route path="/craft/:id/:id2" element={<Protected><Item /></Protected>}></Route>
         <Route path="/signin" element={<Signin />}></Route>
+        <Route path="/stats" element={<Stats />}></Route>
         <Route path="/account" element={<Protected><Account /></Protected>}></Route>
       </Routes>
       <Footer />
