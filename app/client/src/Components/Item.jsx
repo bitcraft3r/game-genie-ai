@@ -41,7 +41,6 @@ const Item = () => {
     // get the itemData for when pathnames match
     const currentItem = items.items.find(comparePaths);
     const itemData = currentItem.data;
-    console.log('itemData', itemData);
 
     return (
         <div className="container">

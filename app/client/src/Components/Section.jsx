@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Section = ({ arr, heading, slug }) => {
+const Section = ({ arr, heading }) => {
         
     const items = arr.map((e, i) => {
         return (
-            <div key={`${e.category}-${i}-${e.slug}`}>
+            <div key={`${e.data.section}-${i}-${e.data.slug}`}>
                 <Link 
-                    to={`/craft/${slug}/${e.slug}`} 
+                    to={`/craft/${e.data.section}/${e.data.slug}`} 
                 >
-                    {e.title}
+                    {e.data.title}
                 </Link>
             </div>
         )

@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Section from './Section';
-import { conceptArr, storyArr, artArr, contentArr } from '../constants';
+import { AppContext } from '../context';
 
 const Craft = () => {
+
+    const items = useContext(AppContext);
+    const itemsArr = items.items;
+
+    const conceptArr = itemsArr.filter((e, i) => {
+        return e.data.section === "concept";
+    })
+    const storyArr = itemsArr.filter((e, i) => {
+        return e.data.section === "story";
+    })
+    const artArr = itemsArr.filter((e, i) => {
+        return e.data.section === "art";
+    })
+    const contentArr = itemsArr.filter((e, i) => {
+        return e.data.section === "content";
+    })
+
   return (
     <div className="container">
         <div className="header">
