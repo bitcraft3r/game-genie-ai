@@ -12,6 +12,7 @@ const AppProvider = (props) => {
             title: e.title,
             description: e.description,
             prefix: e.prefix,
+            suffix: e.suffix,
             type: e.type,
             placeholder: e.placeholder,
             tokens: e.tokens,

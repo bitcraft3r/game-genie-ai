@@ -19,7 +19,7 @@ const PNG = (props) => {
         let str = `${props.finalPrompt}`;
         str = str.replaceAll(',', '').replace(/\s+/g, '-').toLowerCase(); // remove comma, replace space with dash, make all lowercase
         console.log(str); 
-        saveAs(url, `GGAI-${str}.png`);
+        saveAs(url, `GGAI-${props.slug}-${str}.png`);
 
         updateCountPNG();
       }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PNG from './PNG';
 
-const FormImg = () => {
+const FormImg = ({ suffix, placeholder, slug }) => {
 
     const maxRetries = 20;
 
@@ -44,18 +44,20 @@ const FormImg = () => {
         });
         setRetry(0);
       }
+
+      let promptPost = input + ", " + suffix;
   
-      console.log(`input from frontend`, JSON.stringify({ input }));  // {"input":"user prompt here"}
+      console.log(`input from frontend`, JSON.stringify({ promptPost }));  // {"input":"user prompt here"}
   
       // fetch request
       // const response = await fetch('https://aira-chatbot-openai-react-backend.vercel.app:3080/dream', {
       // const response = await fetch('https://ggai-server.web.app:3080/dream', {
-      const response = await fetch('http://localhost:3080/dream', {
+      const response = await fetch('http://localhost:3080/art', {
         method: 'POST',
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ input }),
+        body: JSON.stringify({ promptPost }),
       });
   
       const data = await response.json();
@@ -118,7 +120,7 @@ const FormImg = () => {
         <div>
             <div className="container">
                 <code>/dream </code>
-                <textarea className="dream-box" value={input} placeholder="goddess adventurer, anime style, symmetrical facing front, beautiful nature landscape background" onChange={onChange} />
+                <textarea className="dream-box" value={input} placeholder={placeholder} onChange={onChange} />
                 <div className="dream-buttons">
                     <div 
                     className={
@@ -149,7 +151,7 @@ const FormImg = () => {
                     alt={input} 
                     />
                     <p>{finalPrompt}</p>
-                    <PNG img={img} finalPrompt={finalPrompt} />
+                    <PNG img={img} finalPrompt={finalPrompt} slug={slug} />
                 </div>
                 )}
             </div>

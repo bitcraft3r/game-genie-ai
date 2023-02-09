@@ -92,6 +92,39 @@ app.post('/dream', async (req, res) => {
 
 })
 
+app.post('/art', async (req, res) => {
+    console.log('input req', req.body);
+    const input = req.body.promptPost;
+
+    const response = await fetch(
+        `https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-2-1`, 
+        {
+            headers: {
+                Authorization: `Bearer ${process.env.HF_AUTH_KEY}`,
+                'Content-Type': 'application/json',
+                'x-use-cache': 'false'
+            },
+            method: 'POST',
+            body: JSON.stringify({
+                inputs: input,
+            }),
+        }
+    )
+
+    // Check for different statuses to send proper payload
+    if (response.ok) {
+        const buffer = await response.arrayBuffer();
+        const base64 = bufferToBase64(buffer);
+        res.status(200).json({ image: base64 });
+    } else if (response.status === 503) {
+        const json = await response.json();
+        res.status(503).json(json);
+    } else {
+        res.status(response.status).json({ error: response.statusText });
+    }
+
+})
+
 app.listen(port, () => {
     console.log(`Server running on Port: ${port}`)
 })
