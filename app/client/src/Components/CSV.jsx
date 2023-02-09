@@ -12,15 +12,15 @@ const CSV = ({ slug, data }) => {
     let formattedDate = currentDate.toISOString().split('T')[0];
 
     return (
-        <button onClick={() => setCounterCSV(counterCSV+1)}>
-            <CSVLink 
+        <CSVLink 
                 data={data}
                 filename={`GGAI-${slug}-${formattedDate}.csv`}
                 target="_blank"
             >
+            <button onClick={() => setCounterCSV(counterCSV+1)}>
                 Download CSV
-            </CSVLink>
-        </button>
+            </button>
+        </CSVLink>
     )
 }
 
