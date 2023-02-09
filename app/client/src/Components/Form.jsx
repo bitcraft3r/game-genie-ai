@@ -16,8 +16,8 @@ const Form = ({ prefix, placeholder, tokens, slug }) => {
         
         setIsLoading(true);
         
-        const response = await fetch("https://ggai-server.web.app:3080/craft", {
-        // const response = await fetch("http://localhost:3080/craft", {
+        // const response = await fetch("https://ggai-server.web.app:3080/craft", {
+        const response = await fetch("http://localhost:3080/craft", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
