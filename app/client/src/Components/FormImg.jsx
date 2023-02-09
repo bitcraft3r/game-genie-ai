@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Button from './Button';
 import PNG from './PNG';
 
-const FormImg = ({ suffix, placeholder, slug }) => {
+const FormImg = ({ suffix, placeholder, slug, server }) => {
 
     const maxRetries = 20;
 
@@ -53,7 +53,7 @@ const FormImg = ({ suffix, placeholder, slug }) => {
       // fetch request
       // const response = await fetch('https://aira-chatbot-openai-react-backend.vercel.app:3080/dream', {
       // const response = await fetch('https://ggai-server.web.app:3080/dream', {
-      const response = await fetch('http://localhost:3080/art', {
+      const response = await fetch(`http://localhost:3080/${server}`, {
         method: 'POST',
         headers: {
           "Content-Type": "application/json"

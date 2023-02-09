@@ -15,6 +15,10 @@ const Button = ({ name, type }) => {
             await updateDoc(statsRef, {
                 countDream: increment(1)
             });
+        } else if (type === "dice") {
+            await updateDoc(statsRef, {
+                countDice: increment(1)
+            });
         } else console.log("item type does not match")
     };
 

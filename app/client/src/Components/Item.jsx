@@ -48,7 +48,7 @@ const Item = () => {
             <h1>{itemData.title}</h1>
             <h2>{itemData.description}</h2>
             <div className="container">
-                {itemData.type === "text" ? <Form prefix={itemData.prefix} placeholder={itemData.placeholder} tokens={itemData.tokens} slug={itemData.slug} /> : <FormImg suffix={itemData.suffix} placeholder={itemData.placeholder} slug={itemData.slug} /> }
+                {itemData.type === "text" ? <Form prefix={itemData.prefix} placeholder={itemData.placeholder} tokens={itemData.tokens} slug={itemData.slug} /> : <FormImg suffix={itemData.suffix} placeholder={itemData.placeholder} slug={itemData.slug} server="art" /> }
             </div>
         </div>
     )

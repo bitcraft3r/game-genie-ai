@@ -58,10 +58,7 @@ app.post('/craft', async (req, res) => {
 
 app.post('/dream', async (req, res) => {
     console.log('input req', req.body);
-    const input = req.body.input;
-    // const input = JSON.parse(req.body).input;
-    // const input = req.body;
-    // console.log('input to backend', input);
+    const input = req.body.promptPost;
 
     const response = await fetch(
         `https://api-inference.huggingface.co/models/SOV3/gemscape-characters-anime-style`, 

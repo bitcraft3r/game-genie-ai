@@ -64,7 +64,7 @@ const Chat = () => {
         <div className="container">
             <div className="header">
                 <div className="header-title">
-                    <h1>Chat 👾</h1>
+                    <h1>Chat 🧞‍♀️</h1>
                 </div>
                 <div className="header-subtitle">
                     <h2>Ask {settingsName} anything</h2>

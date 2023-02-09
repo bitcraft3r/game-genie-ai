@@ -24,7 +24,7 @@ const Craft = () => {
     <div className="container">
         <div className="header">
             <div className="header-title">
-                <h1>Craft 🪄</h1>
+                <h1>Craft 🧞‍♂️</h1>
             </div>
             <div className="header-subtitle">
                 <h2>Create imaginative worlds, immersive stories, and viral content</h2>

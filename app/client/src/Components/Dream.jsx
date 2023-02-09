@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import Button from './Button';
+import FormImg from './FormImg';
 import PNG from './PNG';
 // import { saveAs } from 'file-saver';
 
@@ -48,7 +49,14 @@ const Dream = () => {
       setRetry(0);
     }
 
-    console.log(`input from frontend`, JSON.stringify({ input }));  // {"input":"user prompt here"}
+    let promptPost;
+
+    if (Math.random() < 0.5) promptPost = "beautiful female goddess adventurer, anime style, symmetrical facing front, beautiful nature landscape background";
+    else promptPost = "handsome male god adventurer, anime style, symmetrical facing front, beautiful nature landscape background"
+
+    // let promptPost = input + ", beautiful goddess adventurer, anime style, symmetrical facing front, beautiful nature landscape background";
+
+    console.log(`input from frontend`, JSON.stringify({ promptPost }));  // {"input":"user prompt here"}
 
     // fetch request
     // const response = await fetch('https://aira-chatbot-openai-react-backend.vercel.app:3080/dream', {
@@ -58,7 +66,7 @@ const Dream = () => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ input }),
+      body: JSON.stringify({ promptPost }),
     });
 
     const data = await response.json();
@@ -121,16 +129,16 @@ const Dream = () => {
     <div className="container">
       <div className="header">
         <div className="header-title">
-          <h1>Dream 🧙</h1>
+          <h1>Dream 🧞</h1>
         </div>
         <div className="header-subtitle">
-          <h2>Dream up any image and generate it from text</h2>
+          <h2>Generate your own anime-style pfp</h2>
         </div>
       </div>
       <div>
         <div className="dream-container">
-          <code>/dream </code>
-          <textarea className="dream-box" value={input} placeholder="goddess adventurer, anime style, symmetrical facing front, beautiful nature landscape background" onChange={onChange} />
+          {/* <code>/dream </code>
+          <textarea className="dream-box" value={input} placeholder="goddess adventurer, anime style, symmetrical facing front, beautiful nature landscape background" onChange={onChange} /> */}
           <div className="dream-buttons">
             <div 
               className={
@@ -144,7 +152,10 @@ const Dream = () => {
                     <div className="loader"></div>
                   </div>
                 ) : (
-                  <Button name="Generate" type="image" />
+                  <>
+                  {/* <Button name="Generate" type="image" /> */}
+                  <Button name="Randomize" type="dice" />
+                  </>
                 )}
               </div>
             </div>
@@ -162,10 +173,16 @@ const Dream = () => {
               alt={input} 
             />
             <p>{finalPrompt}</p>
-            <PNG img={img} finalPrompt={finalPrompt} />
+            <PNG img={img} finalPrompt="roll" slug="dream" />
           </div>
         )}
       </div>
+      <FormImg 
+        suffix="adventurer, anime style, symmetrical facing front, beautiful nature landscape background"
+        placeholder="beautiful female goddess, crown with gems and gold" 
+        slug="dream" 
+        server="dream" 
+      />
     </div>
   );
 };
