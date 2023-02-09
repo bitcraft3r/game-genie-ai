@@ -35,7 +35,7 @@ const Item = () => {
     
     const comparePaths = (e) => {
         // match pathnames from useContext vs useLocation
-        let contextPathname = `/craft/${e.data.section}/${e.data.slug}`;
+        let contextPathname = `/wish/${e.data.section}/${e.data.slug}`;
         return contextPathname === locationPathname;
     }
 

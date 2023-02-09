@@ -7,7 +7,7 @@ const Section = ({ arr, heading }) => {
         return (
             <div key={`${e.data.section}-${i}-${e.data.slug}`}>
                 <Link 
-                    to={`/craft/${e.data.section}/${e.data.slug}`} 
+                    to={`/wish/${e.data.section}/${e.data.slug}`} 
                 >
                     {e.data.title}
                 </Link>

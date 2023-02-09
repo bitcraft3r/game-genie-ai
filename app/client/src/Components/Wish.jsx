@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Section from './Section';
 import { AppContext } from '../context';
 
-const Craft = () => {
+const Wish = () => {
 
     const contextProps = useContext(AppContext);
     const itemsArr = contextProps[0];
@@ -24,7 +24,7 @@ const Craft = () => {
     <div className="container">
         <div className="header">
             <div className="header-title">
-                <h1>Craft 🧞‍♂️</h1>
+                <h1>Wish 🧞‍♂️</h1>
             </div>
             <div className="header-subtitle">
                 <h2>Create imaginative worlds, immersive stories, and viral content</h2>
@@ -40,4 +40,4 @@ const Craft = () => {
   )
 }
 
-export default Craft
+export default Wish

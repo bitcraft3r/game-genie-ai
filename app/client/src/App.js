@@ -3,7 +3,7 @@ import Navbar from './Components/Navbar';
 import Home from './Components/Home';
 import Chat from './Components/Chat';
 import Dream from './Components/Dream';
-import Craft from './Components/Craft';
+import Wish from './Components/Wish';
 import Item from './Components/Item';
 import Signin from './Components/Signin';
 import Account from './Components/Account';
@@ -24,8 +24,8 @@ function App() {
         <Route exact path="/" element={<Home />}></Route>
         <Route path="/chat" element={<Chat />}></Route>
         <Route path="/dream" element={<Dream />}></Route>
-        <Route exact path="/craft" element={<Craft />}></Route>
-        <Route path="/craft/:id/:id2" element={<Protected><Item /></Protected>}></Route>
+        <Route exact path="/wish" element={<Wish />}></Route>
+        <Route path="/wish/:id/:id2" element={<Protected><Item /></Protected>}></Route>
         <Route path="/signin" element={<Signin />}></Route>
         <Route path="/stats" element={<Stats />}></Route>
         <Route path="/account" element={<Protected><Account /></Protected>}></Route>

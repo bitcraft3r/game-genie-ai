@@ -20,7 +20,7 @@ const Navbar = () => {
             <Link to="/"><img src={logo} alt="logo" /></Link>
         </div>
         <ul className="nav-links">
-            <li><Link to="/craft">Craft</Link></li>
+            <li><Link to="/wish">Wish</Link></li>
             <li><Link to="/chat">Chat</Link></li>
             <li><Link to="/dream">Dream</Link></li>
         </ul>

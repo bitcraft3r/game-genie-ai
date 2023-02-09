@@ -40,7 +40,7 @@ app.post('/chat', async (req, res) => {
     })
 });
 
-app.post('/craft', async (req, res) => {
+app.post('/wish', async (req, res) => {
     const { userPrompt, userTokens } = req.body;
     console.log(`prompt received on server`, userPrompt)
     console.log(`tokens received on server`, userTokens)
