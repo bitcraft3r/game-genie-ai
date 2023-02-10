@@ -2,6 +2,7 @@ import React from 'react';
 import { saveAs } from 'file-saver';
 import { db } from '../firebase';
 import { doc, updateDoc, increment } from 'firebase/firestore';
+import Action from './Action';
 
 const PNG = (props) => {
 
@@ -22,11 +23,15 @@ const PNG = (props) => {
         saveAs(url, `GGAI-${props.slug}-${str}.png`);
 
         updateCountPNG();
-      }
+    }
+
+    const handleChildSubmit = async () => {
+        console.log(`calling handleChildSubmit`)
+    }
 
     return (
-        <div>
-            <button onClick={handleSave}>Download Image</button>
+        <div onClick={handleSave}>
+            <Action type="image" action="download" prompt={props.finalPrompt} handleParentSubmit={handleChildSubmit} buttonName="Download Image" />
         </div>
     )
 }
