@@ -11,72 +11,70 @@ const Leaderboard = () => {
     console.log(`currentUser`, auth.currentUser);
 
     let usersMock = [
-        {uid: 10001, displayName: "Person A", email: "a@email.com", actions: 20, generations: 15, downloads: 5 },
-        {uid: 10002, displayName: "Person B", email: "b@email.com", actions: 17, generations: 13, downloads: 4 },
-        {uid: 10003, displayName: "Person C", email: "c@email.com", actions: 15, generations: 12, downloads: 3 },
-        {uid: 10004, displayName: "Person D", email: "d@email.com", actions: 9, generations: 7, downloads: 2 },
+        {uid: 10001, name: "Person A", email: "a@email.com", actions: 20, generations: 15, downloads: 5 },
+        {uid: 10002, name: "Person B", email: "b@email.com", actions: 17, generations: 13, downloads: 4 },
+        {uid: 10003, name: "Person C", email: "c@email.com", actions: 15, generations: 12, downloads: 3 },
+        {uid: 10004, name: "Person D", email: "d@email.com", actions: 9, generations: 7, downloads: 2 },
     ]
 
     const [actionsArr, setActionsArr] = useState([]);
 
-    let usersObj = {};
     let actionsObj = {};
+    
+    let tempUsersArr = [];
+    let usersArr = []; // emails only
+    let usersObj = {};
 
     useEffect(() => {
-
-        // https://firebase.google.com/docs/auth/admin/manage-users#list_all_users
-        const listAllUsers = (nextPageToken) => {
-            // List batch of users, 1000 at a time.
-            // getAuth()
-            //     .listUsers(1000, nextPageToken)
-            //     .then((listUsersResult) => {
-            //         listUsersResult.users.forEach((userRecord) => {
-            //         console.log('user', userRecord.toJSON());
-            //         });
-            //         if (listUsersResult.pageToken) {
-            //         // List next batch of users.
-            //         listAllUsers(listUsersResult.pageToken);
-            //         }
-            //     })
-            //     .catch((error) => {
-            //         console.log('Error listing users:', error);
-            //     });
-        };
-        // Start listing users from the beginning, 1000 at a time.
-        listAllUsers();
 
         const getSnapshot = async () => {
             const querySnapshot = await getDocs(collection(db, "actions"));
             querySnapshot.forEach((doc) => {
                 console.log(doc.id, " => ", doc.data());
 
-                actionsArr.push(doc.data());
+                let tempObj = doc.data();
+
+                // populate actions array
+                actionsArr.push(tempObj);
+
+                // make temp array -> push all actions' email 
+                tempUsersArr.push(tempObj.email);
             });
             console.log(`actionsArr =>`, actionsArr);
+            
+            // create array of unique emails
+            usersArr = tempUsersArr.filter((value, index) => tempUsersArr.indexOf(value) === index);
+            console.log(`usersArr`, usersArr);
 
-            for (let i=0; i < actionsArr.length; i++) {
-                usersObj[actionsArr[i].email] = actionsArr[i].name;
-            }
-            console.log(`usersObj =>`, usersObj);
+            // ???
 
-            for (let i=0; i < actionsArr.length; i++) {
-                actionsObj[actionsArr[i].timestamp.seconds] = 
+
+           // create users object
+            for (let i=0; i < usersArr.length; i++) {
+                usersObj[usersArr[i]] = 
                 {
-                    name: actionsArr[i].name,
-                    email: actionsArr[i].email,
-                    action: actionsArr[i].action,
-                    type: actionsArr[i].type,
-                    path: actionsArr[i].path,
-                    prompt: actionsArr[i].prompt,
-                    timestamp: actionsArr[i].timestamp
+                    name: "",
+                    email: usersArr[i],
+                    actions: 0,
+                    generations: 0,
+                    downloads: 0,
                 };
             }
-            console.log(`actionsObj =>`, actionsObj);
+            console.log(`usersObj`, usersObj);
+        
+
+
+            // get Name of user
+
+
+            // get Stats of user
+
 
         }
         getSnapshot();
 
     }, []);
+    
   return (
     <div className="container">
         <h1>Leaderboard 🏆</h1>
@@ -87,7 +85,6 @@ const Leaderboard = () => {
                     <tr>
                     <th>Rank</th>
                     <th>Username</th>
-                    {/* <th>Email</th> */}
                     <th>Actions</th>
                     <th>Generations</th>
                     <th>Downloads</th>
@@ -97,8 +94,7 @@ const Leaderboard = () => {
                     {usersMock.map((user, index) => (
                     <tr key={user.uid}>
                         <td>{index + 1}</td>
-                        <td>{user.displayName || '-'}</td>
-                        {/* <td>{user.email}</td> */}
+                        <td>{user.name || 'nil'}</td>
                         <td>{user.actions}</td>
                         <td>{user.generations}</td>
                         <td>{user.downloads}</td>
