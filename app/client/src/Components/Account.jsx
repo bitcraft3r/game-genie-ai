@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { UserAuth } from '../context/AuthContext';
 import { db } from '../firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
+import BadgesUser from './BadgesUser';
 
 /**
  * BUG: Cannot Refresh on ACCOUNT page
@@ -124,6 +125,10 @@ const Account = () => {
         <h2>Welcome, {user?.displayName}!</h2>
         {/* nullish coalescing operator; check if `user` is null before accessing `displayName` property */}
         <button onClick={handleSignOut}>Logout</button>
+        <div className="container">
+            <h3>Your Badges</h3>
+            <BadgesUser />
+        </div>
         <div className="container">
             <div>
                 <h3>Actions Overview</h3>

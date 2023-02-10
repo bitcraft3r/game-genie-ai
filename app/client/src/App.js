@@ -1,4 +1,6 @@
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import { AuthContextProvider } from './context/AuthContext';
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
 import Chat from './Components/Chat';
@@ -10,9 +12,8 @@ import Account from './Components/Account';
 import Protected from './Components/Protected';
 import Stats from './Components/Stats';
 import Footer from './Components/Footer';
-import Action from './Components/Action';
-import { Route, Routes } from 'react-router-dom';
-import { AuthContextProvider } from './context/AuthContext';
+import Badges from './Components/Badges';
+import Leaderboard from './Components/Leaderboard';
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
         <Route path="/wish/:id/:id2" element={<Protected><Item /></Protected>}></Route>
         <Route path="/signin" element={<Signin />}></Route>
         <Route path="/stats" element={<Stats />}></Route>
+        <Route path="/badges" element={<Badges />}></Route>
+        <Route path="/Leaderboard" element={<Leaderboard />}></Route>
         <Route path="/account" element={<Protected><Account /></Protected>}></Route>
       </Routes>
       <Footer />

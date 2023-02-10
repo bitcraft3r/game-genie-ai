@@ -1,3 +1,7 @@
+import badge1 from '../assets/adventurer.png'
+import badge2 from '../assets/aira.png'
+import badge3 from '../assets/saige.png'
+
 export const itemsArr = [
     { section: "concept", type: "text", tokens: 256, slug: "idea", title: "Game Idea", description: "Generate a name and description for your next game", placeholder: "Describe your game. E.g. mmorpg, like world of warcraft, web3 and blockchain, free-to-play", prefix: "Generate a name and description of a game that includes the following:" },
     { section: "concept", type: "text", tokens: 64, slug: "name", title: "Name Generator", description: "Generate name ideas for your next game", placeholder: "Describe your game. E.g. real-time strategy game and resource planning, like starcraft, web3 and blockchain, play-to-earn", prefix: "Suggest 10 cool names for a game/startup about:" },
@@ -11,4 +15,12 @@ export const itemsArr = [
     { section: "content", type: "text", tokens: 64, slug: "instagram", title: "Instagram Post", description: "Generate an engaging instagram post", placeholder: "Describe the post. E.g. check out my latest #AiArt created with @GameGenieAi for my pixel art game", prefix: "Create text for an instagram post about:" },
     { section: "content", type: "text", tokens: 64, slug: "twitter", title: "Twitter Post", description: "Generate an engaging twitter post", placeholder: "Describe the post. E.g. Created stories and art for my web3 game on @GameGenieAi", prefix: "Create text for an engaging twitter post, and use relevant emojis sparingly, about:" },
     { section: "content", type: "text", tokens: 512, slug: "thread", title: "Twitter Thread", description: "Generate an engaging twitter thread", placeholder: "Describe the twitter thread. E.g. Why game developers should use AI tools to tell better stories", prefix: "Create a twitter thread that is engaging, informational and educational. Describe each point in detail, and add a concrete example, numbers or statistics. Don't be repetitive. It is about:" },
+]
+
+export const badgesArr = [
+    { name: "Generating Guru", stat: "generate", count: 5, description: "Generate 5 times", image: badge1 },
+    { name: "Download Diva", stat: "download", count: 5, description: "Download 5 times", image: badge2 },
+    { name: "Click Commander", stat: "total", count: 20, description: "Make 20 total actions", image: badge3 },
+    // { name: "Genieratooor", stat: "generate", count: 50, description: "Generate 50 times", image: "../assets/saige.png" },
+    // { name: "Genie Master", stat: "total", count: 100, description: "Make 100 total actions", image: "../assets/saige.png" },
 ]

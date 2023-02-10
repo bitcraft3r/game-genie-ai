@@ -119,3 +119,12 @@
 .footer p {
   justify-content: right;
 }
+
+.container-badges {
+  display: flex;
+  justify-content: space-around;
+}
+
+.badge-icons {
+  width: 100px;
+}
