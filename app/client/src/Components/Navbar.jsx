@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
 import logo from '../assets/logo.png';
+import ShareTwitterButton from './ShareTwitterButton';
 
 const Navbar = () => {
     const { user, logOut } = UserAuth();
@@ -24,6 +25,9 @@ const Navbar = () => {
             <li><Link to="/chat">Chat</Link></li>
             <li><Link to="/dream">Dream</Link></li>
         </ul>
+        <div>
+          <ShareTwitterButton />
+        </div>
         <div className="nav-button">
             { user?.displayName ? (
             <button onClick={handleSignOut}>Logout</button> 
