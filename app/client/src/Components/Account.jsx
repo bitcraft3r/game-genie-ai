@@ -24,6 +24,8 @@ const Account = () => {
     
     const { logOut, user } = UserAuth();
 
+    const [isLoading, setIsLoading] = useState(false);
+
     // constants for (A)
     const [countUserActions, setCountUserActions] = useState(0);
 
@@ -60,6 +62,7 @@ const Account = () => {
 
     useEffect(() => {
         const getStats = async () => {
+            setIsLoading(true);
 
             // Read and increment counters for (A)
             const queryUserActionsSnapshot = await getDocs(qUserActions);
@@ -107,6 +110,8 @@ const Account = () => {
             queryUserDownloadedTextSnapshot.forEach((doc) => {
                 setCountUserDownloadedText(countUserDownloadedText => countUserDownloadedText+1);
             });
+
+            setIsLoading(false);
         }
         getStats();
     }, [])
@@ -134,25 +139,34 @@ const Account = () => {
             />
         </div>
         <div className="container">
-            <div>
-                <h3>Actions Overview</h3>
-                <p>Your Total Actions: {Math.ceil(countUserActions/2)}</p>
-                <p>Your Total Generations: {Math.ceil(countUserGenerated/2)}</p>
-                <p>Your Total Downloads: {Math.ceil(countUserDownloaded/2)}</p>
-                <p>Your Total Tweets: {Math.ceil(countUserTweeted/2)}</p>
-            </div>
-            <div>
-                <h3>Image Actions</h3>
-                <p>Your Total Image Actions: {Math.ceil(countUserImage/2)}</p>
-                <p>Your Total Image Generations: {Math.ceil(countUserGeneratedImage/2)}</p>
-                <p>Your Total Image Downloads: {Math.ceil(countUserDownloadedImage/2)}</p>
-            </div>
-            <div>
-                <h3>Text Actions</h3>
-                <p>Your Total Text Actions: {Math.ceil(countUserText/2)}</p>
-                <p>Your Total Text Generations: {Math.ceil(countUserGeneratedText/2)}</p>
-                <p>Your Total Text Downloads: {Math.ceil(countUserDownloadedText/2)}</p>
-            </div>
+            <h3>Your Stats</h3>
+            {isLoading ? (
+                <div className="loader-container">
+                    <div className="loader"></div>
+                </div>
+            ) : (
+                <>
+                <div>
+                    <h3>Actions Overview</h3>
+                    <p>Your Total Actions: {Math.ceil(countUserActions/2)}</p>
+                    <p>Your Total Generations: {Math.ceil(countUserGenerated/2)}</p>
+                    <p>Your Total Downloads: {Math.ceil(countUserDownloaded/2)}</p>
+                    <p>Your Total Tweets: {Math.ceil(countUserTweeted/2)}</p>
+                </div>
+                <div>
+                    <h3>Image Actions</h3>
+                    <p>Your Total Image Actions: {Math.ceil(countUserImage/2)}</p>
+                    <p>Your Total Image Generations: {Math.ceil(countUserGeneratedImage/2)}</p>
+                    <p>Your Total Image Downloads: {Math.ceil(countUserDownloadedImage/2)}</p>
+                </div>
+                <div>
+                    <h3>Text Actions</h3>
+                    <p>Your Total Text Actions: {Math.ceil(countUserText/2)}</p>
+                    <p>Your Total Text Generations: {Math.ceil(countUserGeneratedText/2)}</p>
+                    <p>Your Total Text Downloads: {Math.ceil(countUserDownloadedText/2)}</p>
+                </div>
+                </>
+            )}
         </div>
     </div>
   )

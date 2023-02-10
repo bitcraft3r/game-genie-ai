@@ -19,12 +19,14 @@ import { doc, getDoc, collection, query, where, getDocs } from 'firebase/firesto
  */
 
 const Stats = () => {
+    const [isLoading, setIsLoading] = useState(false);
+
     const [countCSV, setCountCSV] = useState(0);
     const [countPNG, setCountPNG] = useState(0);
     const [countChat, setCountChat] = useState(0);
     const [countDream, setCountDream] = useState(0);
     const [countDice, setCountDice] = useState(0); 
-    // const [countTweet, setCountTweet] = useState(0); 
+    const [countTweet, setCountTweet] = useState(0); 
 
     const [countGenerated, setCountGenerated] = useState(0);
     const [countDownloaded, setCountDownloaded] = useState(0);
@@ -45,7 +47,7 @@ const Stats = () => {
     
     const qTotalGenerated = query(collection(db, "actions"), where("action", "==", "generate"));
     const qTotalDownloaded = query(collection(db, "actions"), where("action", "==", "download"));
-    // const qTotalShared = query(collection(db, "actions"), where("action", "==", "share"));
+    const qTotalShared = query(collection(db, "actions"), where("action", "==", "share"));
     const qTotalText = query(collection(db, "actions"), where("type", "==", "text"));
     const qTotalImages = query(collection(db, "actions"), where("type", "==", "image"));
     const qTotalPathHome = query(collection(db, "actions"), where("path", "==", "/"));
@@ -60,6 +62,7 @@ const Stats = () => {
     useEffect(() => {
         
         const getStats = async () => {
+          setIsLoading(true);
 
             /**
              * COUNTER STATS
@@ -79,7 +82,7 @@ const Stats = () => {
             setCountChat(docSnap.data().countChat);
             setCountDream(docSnap.data().countDream);
             setCountDice(docSnap.data().countDice);
-            // setCountTweet(docSnap.data().countTweet);
+            setCountTweet(docSnap.data().countTweet);
 
             /**
              * TOTAL ACTIONS & STATS
@@ -101,10 +104,10 @@ const Stats = () => {
               setCountDownloaded(countDownloaded => countDownloaded+1);
             });
 
-            // const querySharedSnapshot = await getDocs(qTotalShared);
-            // querySharedSnapshot.forEach((doc) => {
-            //   setCountShared(countShared => countShared+1);
-            // });
+            const querySharedSnapshot = await getDocs(qTotalShared);
+            querySharedSnapshot.forEach((doc) => {
+              setCountShared(countShared => countShared+1);
+            });
 
             const queryTextSnapshot = await getDocs(qTotalText);
             queryTextSnapshot.forEach((doc) => {
@@ -162,6 +165,8 @@ const Stats = () => {
               setCountPathOthers(countPathOthers => countPathOthers-1);
             });
 
+            setIsLoading(false);
+
         }
         getStats();
     }, []);
@@ -170,35 +175,44 @@ const Stats = () => {
         <div className="container">
             <h1>Statistics 📊</h1>
             <h2>Platform Usage Metrics</h2>
-            <div className="container">
-              <h3>Actions Overview</h3>
-                <p>Total Actions: {Math.ceil(countTotal/2)}</p>
-                <p>Total Generations: {Math.ceil(countGenerated/2)}</p>
-                <p>Total Downloads: {Math.ceil(countDownloaded/2)}</p>
-                <p>Total Shares: {Math.ceil(countShared/2)}</p>
-              <h3>Image Actions</h3>
-                <p>Total Image Actions: {Math.ceil(countImages/2)}</p>
-                <p>Randomized PFPs Generated: {countDice}</p>
-                <p>Other Images Generated: {countDream}</p>
-                <p>PNG Downloaded: {countPNG}</p>
-              <h3>Text Actions</h3>
-                <p>Total Text Actions: {Math.ceil(countText/2)}</p>
-                <p>Chats Generated: {countChat}</p>
-                <p>CSV Downloaded: {countCSV}</p>
-              {/* <h3>Share Actions</h3>
-                <p>Tweets Shared: {countTweet}</p> */}
-            </div>
-            <div className="container">
-              <h3>Actions by PATH</h3>
-                <p>Total Actions on /home: {Math.ceil(countPathHome/2)}</p>
-                <p>Total Actions on /chat: {Math.ceil(countPathChat/2)}</p>
-                <p>Total Actions on /dream: {Math.ceil(countPathDream/2)}</p>
-                <p>Total Actions on /wish: {Math.ceil(countPathWish/2)}</p>
-                <p>Total Actions on /wish/*: {Math.ceil(countPathOthers/2)}</p>
-                <p>Total Actions on /stats: {Math.ceil(countPathStats/2)}</p>
-                <p>Total Actions on /account: {Math.ceil(countPathAccount/2)}</p>
-                <p>Total Actions on /signin: {Math.ceil(countPathSignin/2)}</p>
-            </div>
+            
+              {isLoading ? (
+                  <div className="loader-container">
+                      <div className="loader"></div>
+                  </div>
+              ) : (
+              <>
+              <div className="container">
+                <h3>Actions Overview</h3>
+                  <p>Total Actions: {Math.ceil(countTotal/2)}</p>
+                  <p>Total Generations: {Math.ceil(countGenerated/2)}</p>
+                  <p>Total Downloads: {Math.ceil(countDownloaded/2)}</p>
+                  <p>Total Shares: {Math.ceil(countShared/2)}</p>
+                <h3>Image Actions</h3>
+                  <p>Total Image Actions: {Math.ceil(countImages/2)}</p>
+                  <p>Randomized PFPs Generated: {countDice}</p>
+                  <p>Other Images Generated: {countDream}</p>
+                  <p>PNG Downloaded: {countPNG}</p>
+                <h3>Text Actions</h3>
+                  <p>Total Text Actions: {Math.ceil(countText/2)}</p>
+                  <p>Chats Generated: {countChat}</p>
+                  <p>CSV Downloaded: {countCSV}</p>
+                <h3>Share Actions</h3>
+                  <p>Tweets Shared: {countTweet}</p>
+              </div>
+              <div className="container">
+                <h3>Actions by PATH</h3>
+                  <p>Total Actions on /home: {Math.ceil(countPathHome/2)}</p>
+                  <p>Total Actions on /chat: {Math.ceil(countPathChat/2)}</p>
+                  <p>Total Actions on /dream: {Math.ceil(countPathDream/2)}</p>
+                  <p>Total Actions on /wish/*: {Math.ceil(countPathOthers/2)}</p>
+                  <p>Total Actions on /wish: {Math.ceil(countPathWish/2)}</p>
+                  <p>Total Actions on /stats: {Math.ceil(countPathStats/2)}</p>
+                  <p>Total Actions on /account: {Math.ceil(countPathAccount/2)}</p>
+                  <p>Total Actions on /signin: {Math.ceil(countPathSignin/2)}</p>
+              </div>
+              </>
+              )}
         </div>
     )
 };
