@@ -75,7 +75,8 @@ Deployed to: https://gamegenieai.web.app/
 
 7. Firebase Firestore for CRUD to Read and Update csv & png download stats:
 - [CRUD Tutorial Using React + Firebase | Firebase 9 and Firestore Tutorial](https://youtu.be/jCY6DH8F4oc)
-- [Documentation: Get a document](https://firebase.google.com/docs/firestore/query-data/get-data#get_a_document)
+- [Documentation: Create/Add document, get timestamp, auto generate ID](https://firebase.google.com/docs/firestore/manage-data/add-data)
+- [Documentation: Read/Get a document](https://firebase.google.com/docs/firestore/query-data/get-data#get_a_document)
 - [Documentation: Update document & increment](https://firebase.google.com/docs/firestore/manage-data/add-data#increment_a_numeric_value)
 
 ## TODO
