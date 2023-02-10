@@ -127,7 +127,11 @@ const Account = () => {
         <button onClick={handleSignOut}>Logout</button>
         <div className="container">
             <h3>Your Badges</h3>
-            <BadgesUser />
+            <BadgesUser 
+                userBadge1={Math.ceil(countUserGenerated/2)} 
+                userBadge2={Math.ceil(countUserDownloaded/2)}
+                userBadge3={Math.ceil(countUserActions/2)}
+            />
         </div>
         <div className="container">
             <div>
