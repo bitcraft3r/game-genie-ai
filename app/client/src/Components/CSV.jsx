@@ -2,8 +2,9 @@ import React from 'react'
 import { CSVLink } from "react-csv";
 import { db } from '../firebase';
 import { doc, updateDoc, increment } from 'firebase/firestore';
+import Action from './Action';
 
-const CSV = ({ slug, data }) => {
+const CSV = ({ slug, data, prompt }) => {
 
     // Get date in YYYY-MM-DD format
     // https://stackoverflow.com/a/29774197
@@ -18,6 +19,10 @@ const CSV = ({ slug, data }) => {
         });
     };
 
+    const handleChildSubmit = async () => {
+        console.log(`calling handleChildSubmit`)
+    }
+
     return (
         <CSVLink 
                 data={data}
@@ -25,9 +30,9 @@ const CSV = ({ slug, data }) => {
                 target="_blank"
             >
             {/* <button onClick={() => setCounterCSV(counterCSV+1)}> */}
-            <button onClick={updateCountCSV}>
-                Download CSV
-            </button>
+            <div onClick={updateCountCSV}>
+                <Action type="text" action="download" prompt={prompt} handleParentSubmit={handleChildSubmit} buttonName="Download CSV" />
+            </div>
         </CSVLink>
     )
 }

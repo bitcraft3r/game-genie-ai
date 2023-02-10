@@ -14,7 +14,7 @@ const Chat = () => {
         { user: `${settingsName}`, message: `Greetings! I am ${settingsName}, ${settingsType}. I am here to help you with any questions or tasks you may have. Please let me know how I can be of assistance.`},
     ]);
     const [isLoading, setIsLoading] = useState(false);
-
+    const [latestInput, setLatestInput] = useState("");
 
     // Q: do i need useEffect?
 
@@ -25,10 +25,11 @@ const Chat = () => {
     const clearChat = () => {
         setChatLog([]);
     }
-    
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(input);
+        setLatestInput(input);
         let chatLogNew = [...chatLog, {
             user: "Me", message: `${input}`
         }]
@@ -102,7 +103,7 @@ const Chat = () => {
                 </form>
             </div>
             <div>
-                <CSV slug="chat" data={chatLog} />
+                <CSV slug="chat" data={chatLog} prompt={latestInput} />
                 <button onClick={clearChat}>Clear</button>
             </div>
             <br />

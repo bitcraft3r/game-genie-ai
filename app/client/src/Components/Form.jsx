@@ -8,11 +8,12 @@ import saigePFP from '../assets/saige.png'
 const Form = ({ prefix, placeholder, tokens, slug }) => {
     const [input, setInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-
     const [chatLog, setChatLog] = useState([]);
+    const [latestInput, setLatestInput] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLatestInput(input);
 
         let finalInput = `${prefix} ${input}`;
         console.log(`prefix + userPrompt`, finalInput);
@@ -86,7 +87,7 @@ const Form = ({ prefix, placeholder, tokens, slug }) => {
                     )}
                 </form>
             </div>
-            <CSV slug={slug} data={chatLog} />
+            <CSV slug={slug} data={chatLog} prompt={latestInput} />
         </div>
     )
 }
