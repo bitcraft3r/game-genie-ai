@@ -30,7 +30,6 @@ function App() {
         <Route path="/signin" element={<Signin />}></Route>
         <Route path="/stats" element={<Stats />}></Route>
         <Route path="/account" element={<Protected><Account /></Protected>}></Route>
-        <Route path="/action" element={<Action />}></Route>
       </Routes>
       <Footer />
     </AuthContextProvider>

@@ -21,11 +21,12 @@ const Button = ({ name, type, prompt }) => {
                 countDice: increment(1)
             });
         } else console.log("item type does not match")
-
-        // send payload to <Action />, then
-        // call addAction child function
-
     };
+
+    // Call `addAction` function in Child <Action /> component
+    const handleChildSubmit = async () => {
+        console.log(`calling handleChildSubmit`)
+    }
 
     let currentType;
     if (type === "text") currentType = "text";
@@ -34,10 +35,12 @@ const Button = ({ name, type, prompt }) => {
     let currentAction = "generate";
 
     return (
-        <button onClick={updateCount}>
-            <Action type={currentType} action={currentAction} prompt={prompt} />
-            {name}
-        </button>
+        <div onClick={() => {
+            updateCount();
+            handleChildSubmit();
+        }}>
+            <Action type={currentType} action={currentAction} prompt={prompt} handleParentSubmit={handleChildSubmit} buttonName={name} />
+        </div>
     )
 };
 

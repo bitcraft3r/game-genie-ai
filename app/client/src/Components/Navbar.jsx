@@ -23,7 +23,6 @@ const Navbar = () => {
             <li><Link to="/wish">Wish</Link></li>
             <li><Link to="/chat">Chat</Link></li>
             <li><Link to="/dream">Dream</Link></li>
-            <li><Link to="/action">Action</Link></li>
         </ul>
         <div className="nav-button">
             { user?.displayName ? (
