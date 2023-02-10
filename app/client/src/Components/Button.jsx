@@ -20,6 +20,10 @@ const Button = ({ name, type, prompt }) => {
             await updateDoc(statsRef, {
                 countDice: increment(1)
             });
+        } else if (type === "tweet") {
+            await updateDoc(statsRef, {
+                countTweet: increment(1)
+            });
         } else console.log("item type does not match")
     };
 
@@ -28,11 +32,20 @@ const Button = ({ name, type, prompt }) => {
         console.log(`calling handleChildSubmit`)
     }
 
+    let currentAction;
     let currentType;
-    if (type === "text") currentType = "text";
-    else if (type === "image" || type === "dice") currentType = "image";
 
-    let currentAction = "generate";
+    if (type === "text") {
+        currentAction = "generate";
+        currentType = "text";
+    } else if (type === "image" || type === "dice") {
+        currentAction = "generate";
+        currentType = "image";
+    } else if (type === "tweet") {
+        currentAction = "share";
+        currentType = "tweet";
+    }
+
 
     return (
         <div onClick={() => {

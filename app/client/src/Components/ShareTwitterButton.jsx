@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Button";
 
 const ShareTwitterButton = () => {
 
@@ -24,7 +25,9 @@ const ShareTwitterButton = () => {
 
   return (
     <a href={twitterShareUrl} target="_blank" rel="noopener noreferrer">
-      <button>Share on Twitter</button>
+      <div>
+        <Button name="Share on Twitter" type="tweet" prompt={text} />
+      </div>
     </a>
   );
 };
