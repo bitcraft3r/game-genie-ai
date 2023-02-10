@@ -42,6 +42,11 @@ Configuring Server:
 7. in `functions` folder, use `npm i dotenv body-parser openai`.
 Deployed to: https://ggai-server.web.app/.
 
+### Setup to retrieve all users from Firebase
+
+1. `npm install firebase-admin --save`
+https://firebase.google.com/docs/admin/setup#add-sdk
+
 ### Deploy frontend to Firebase
 
 Deployed to: https://gamegenieai.web.app/
@@ -78,6 +83,9 @@ Deployed to: https://gamegenieai.web.app/
 - [Documentation: Create/Add document, get timestamp, auto generate ID](https://firebase.google.com/docs/firestore/manage-data/add-data)
 - [Documentation: Read/Get a document](https://firebase.google.com/docs/firestore/query-data/get-data#get_a_document)
 - [Documentation: Update document & increment](https://firebase.google.com/docs/firestore/manage-data/add-data#increment_a_numeric_value)
+
+8. Firebase retrieve all users
+- [Documentation: List all users](https://firebase.google.com/docs/auth/admin/manage-users#list_all_users)
 
 ## TODO
 
