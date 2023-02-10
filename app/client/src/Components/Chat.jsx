@@ -97,7 +97,7 @@ const Chat = () => {
                             <div className="loader"></div>
                         </div>
                     ) : (
-                        <Button name="Submit" type="text" />
+                        <Button name="Submit" type="text" prompt={input} />
                     )}
                 </form>
             </div>

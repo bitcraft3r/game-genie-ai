@@ -154,7 +154,7 @@ const Dream = () => {
                 ) : (
                   <>
                   {/* <Button name="Generate" type="image" /> */}
-                  <Button name="Randomize" type="dice" />
+                  <Button name="Randomize" type="dice" prompt={input} />
                   </>
                 )}
               </div>

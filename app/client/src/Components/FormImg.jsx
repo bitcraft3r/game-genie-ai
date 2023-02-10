@@ -135,7 +135,7 @@ const FormImg = ({ suffix, placeholder, slug, server }) => {
                             <div className="loader"></div>
                         </div>
                         ) : (
-                        <Button name="Generate" type="image" />
+                        <Button name="Generate" type="image" prompt={input} />
                         )}
                     </div>
                     </div>
