@@ -81,6 +81,7 @@ const Stats = () => {
             const queryTotalSnapshot = await getDocs(collection(db, "actions"));
             queryTotalSnapshot.forEach((doc) => {
                 setCountTotal(countTotal => countTotal+1);
+                setCountPathOthers(countPathOthers => countPathOthers+1);
             });
 
             const queryGeneratedSnapshot = await getDocs(qTotalGenerated);
@@ -115,36 +116,43 @@ const Stats = () => {
             const queryPathHomeSnapshot = await getDocs(qTotalPathHome);
             queryPathHomeSnapshot.forEach((doc) => {
               setCountPathHome(countPathHome => countPathHome+1);
+              setCountPathOthers(countPathOthers => countPathOthers-1);
             });
 
             const queryPathChatSnapshot = await getDocs(qTotalPathChat);
             queryPathChatSnapshot.forEach((doc) => {
               setCountPathChat(countPathChat => countPathChat+1);
+              setCountPathOthers(countPathOthers => countPathOthers-1);
             });
 
             const queryPathDreamSnapshot = await getDocs(qTotalPathDream);
             queryPathDreamSnapshot.forEach((doc) => {
               setCountPathDream(countPathDream => countPathDream+1);
+              setCountPathOthers(countPathOthers => countPathOthers-1);
             });
 
             const queryPathWishSnapshot = await getDocs(qTotalPathWish);
             queryPathWishSnapshot.forEach((doc) => {
               setCountPathWish(countPathWish => countPathWish+1);
+              setCountPathOthers(countPathOthers => countPathOthers-1);
             });
 
             const queryPathStatsSnapshot = await getDocs(qTotalPathStats);
             queryPathStatsSnapshot.forEach((doc) => {
               setCountPathStats(countPathStats => countPathStats+1);
+              setCountPathOthers(countPathOthers => countPathOthers-1);
             });
 
             const queryPathAccountSnapshot = await getDocs(qTotalPathAccount);
             queryPathAccountSnapshot.forEach((doc) => {
               setCountPathAccount(countPathAccount => countPathAccount+1);
+              setCountPathOthers(countPathOthers => countPathOthers-1);
             });
 
             const queryPathSigninSnapshot = await getDocs(qTotalPathSignin);
             queryPathSigninSnapshot.forEach((doc) => {
               setCountPathSignin(countPathSignin => countPathSignin+1);
+              setCountPathOthers(countPathOthers => countPathOthers-1);
             });
 
         }
@@ -167,7 +175,7 @@ const Stats = () => {
                 <p>Total Actions on /chat: {Math.ceil(countPathChat/2)}</p>
                 <p>Total Actions on /dream: {Math.ceil(countPathDream/2)}</p>
                 <p>Total Actions on /wish: {Math.ceil(countPathWish/2)}</p>
-                {/* <p>Total Actions on /wish/*: {Math.ceil(countPathOthers/2)}</p> */}
+                <p>Total Actions on /wish/*: {Math.ceil(countPathOthers/2)}</p>
                 <p>Total Actions on /stats: {Math.ceil(countPathStats/2)}</p>
                 <p>Total Actions on /account: {Math.ceil(countPathAccount/2)}</p>
                 <p>Total Actions on /signin: {Math.ceil(countPathSignin/2)}</p>
