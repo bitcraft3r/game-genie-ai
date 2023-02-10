@@ -2,17 +2,22 @@ import React from 'react'
 import { db } from '../firebase';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
 import { useLocation } from 'react-router';
+import { UserAuth } from '../context/AuthContext';
 
 const Action = ({ type, action, prompt, handleParentSubmit, buttonName }) => {
 
     const location = useLocation();
     const locationPathname = location.pathname;
+    const { user } = UserAuth();
+
+    let userName = user?.displayName || "anonymous";
+    let userEmail = user?.email || "-"
 
     const addAction = async () => {
         console.log(`creating action on firestore`);
         const docRef = await addDoc(collection(db, "actions"), {
-            name: "TEST NAME",
-            email: "test@email.com",
+            name: userName,
+            email: userEmail,
             action: action, // generate or download
             type: type, // text or image
             prompt: prompt,

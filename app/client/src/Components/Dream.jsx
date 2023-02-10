@@ -154,7 +154,7 @@ const Dream = () => {
                 ) : (
                   <>
                   {/* <Button name="Generate" type="image" /> */}
-                  <Button name="Randomize" type="dice" prompt={input} />
+                  <Button name="Randomize" type="dice" prompt="-roll" />
                   </>
                 )}
               </div>
@@ -173,7 +173,7 @@ const Dream = () => {
               alt={input} 
             />
             <p>{finalPrompt}</p>
-            <PNG img={img} finalPrompt="roll" slug="dream" />
+            <PNG img={img} finalPrompt="-roll" slug="dream" />
           </div>
         )}
       </div>

@@ -17,6 +17,7 @@ const Account = () => {
     <div className="container">
         <h1>Account</h1>
         <h2>Welcome, {user?.displayName}!</h2>
+        {/* nullish coalescing operator; check if `user` is null before accessing `displayName` property */}
         <button onClick={handleSignOut}>Logout</button>
     </div>
   )
