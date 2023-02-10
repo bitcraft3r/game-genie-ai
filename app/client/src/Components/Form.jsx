@@ -82,7 +82,7 @@ const Form = ({ prefix, placeholder, tokens, slug }) => {
                             <div className="loader"></div>
                         </div>
                     ) : (
-                        <Button name="Generate" type="text" />
+                        <Button name="Generate" type="text" prompt={input} />
                     )}
                 </form>
             </div>
