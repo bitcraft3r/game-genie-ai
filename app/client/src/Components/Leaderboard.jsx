@@ -1,4 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { db } from '../firebase';
+import { collection, getDocs } from 'firebase/firestore';
 import { UserAuth } from '../context/AuthContext';
 import { getAuth } from "firebase/auth";
 
@@ -14,6 +16,11 @@ const Leaderboard = () => {
         {uid: 10003, displayName: "Person C", email: "c@email.com", actions: 15, generations: 12, downloads: 3 },
         {uid: 10004, displayName: "Person D", email: "d@email.com", actions: 9, generations: 7, downloads: 2 },
     ]
+
+    const [actionsArr, setActionsArr] = useState([]);
+
+    let usersObj = {};
+    let actionsObj = {};
 
     useEffect(() => {
 
@@ -37,6 +44,38 @@ const Leaderboard = () => {
         };
         // Start listing users from the beginning, 1000 at a time.
         listAllUsers();
+
+        const getSnapshot = async () => {
+            const querySnapshot = await getDocs(collection(db, "actions"));
+            querySnapshot.forEach((doc) => {
+                console.log(doc.id, " => ", doc.data());
+
+                actionsArr.push(doc.data());
+            });
+            console.log(`actionsArr =>`, actionsArr);
+
+            for (let i=0; i < actionsArr.length; i++) {
+                usersObj[actionsArr[i].email] = actionsArr[i].name;
+            }
+            console.log(`usersObj =>`, usersObj);
+
+            for (let i=0; i < actionsArr.length; i++) {
+                actionsObj[actionsArr[i].timestamp.seconds] = 
+                {
+                    name: actionsArr[i].name,
+                    email: actionsArr[i].email,
+                    action: actionsArr[i].action,
+                    type: actionsArr[i].type,
+                    path: actionsArr[i].path,
+                    prompt: actionsArr[i].prompt,
+                    timestamp: actionsArr[i].timestamp
+                };
+            }
+            console.log(`actionsObj =>`, actionsObj);
+
+        }
+        getSnapshot();
+
     }, []);
   return (
     <div className="container">
@@ -69,7 +108,8 @@ const Leaderboard = () => {
             </table>
         </div>
         <div>
-            You: {user.displayName}
+            {user ? (<p>You: {user?.displayName || "-"}</p>) : ( <></>)}
+            
         </div>
     </div>
   )
