@@ -25,6 +25,8 @@ const Signin = () => {
 
     return (
         <div className="container">
+            <h1>Sign In 🔐</h1>
+            <h2>Sign in to make your wishes come true!</h2>
             <GoogleButton onClick={handleGoogleSignIn} />
         </div>
     )

@@ -5,15 +5,7 @@ import logo from '../assets/logo.png';
 import ShareTwitterButton from './ShareTwitterButton';
 
 const Navbar = () => {
-    const { user, logOut } = UserAuth();
-
-    const handleSignOut = async () => {
-        try {
-            await logOut();
-        } catch (error) {
-            console.log(error);
-        }
-    } 
+    const { user } = UserAuth();
 
   return (
     <nav className="nav">
@@ -30,7 +22,7 @@ const Navbar = () => {
         </div>
         <div className="nav-button">
             { user?.displayName ? (
-            <button onClick={handleSignOut}>Logout</button> 
+            <Link to="/account"><button>{user.displayName}</button></Link> 
             ) : ( 
             <Link to="/signin"><button>Sign In</button></Link> 
             )}
