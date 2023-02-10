@@ -1,6 +1,8 @@
 import React from 'react'
+import { UserAuth } from '../context/AuthContext';
 
 const Leaderboard = () => {
+    const { user } = UserAuth();
 
     let users = [
         {uid: 10001, displayName: "Person A", email: "a@email.com", actions: 20, generations: 15, downloads: 5 },
@@ -41,6 +43,9 @@ const Leaderboard = () => {
                     ))}
                 </tbody>
             </table>
+        </div>
+        <div>
+            You: {user.displayName}
         </div>
     </div>
   )
