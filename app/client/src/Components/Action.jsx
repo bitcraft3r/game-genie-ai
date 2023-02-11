@@ -4,6 +4,12 @@ import { collection, addDoc, Timestamp } from 'firebase/firestore';
 import { useLocation } from 'react-router';
 import { UserAuth } from '../context/AuthContext';
 
+/**
+ * 
+ * Action component is for adding data to Firestore
+ * when user clicks on a button
+ */
+
 const Action = ({ type, action, prompt, handleParentSubmit, buttonName }) => {
 
     const location = useLocation();

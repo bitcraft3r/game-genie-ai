@@ -16,12 +16,6 @@ const Chat = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [latestInput, setLatestInput] = useState("");
 
-    // Q: do i need useEffect?
-
-    // useEffect(() => {
-
-    // }, [settingsName, settingsType])
-
     const clearChat = () => {
         setChatLog([]);
     }
@@ -35,8 +29,6 @@ const Chat = () => {
         }]
         setInput("");
         setChatLog(chatLogNew);
-
-        // const messages = chatLogNew.map((message) => message.message).join("\n");
         setIsLoading(true);
 
         // const response = await fetch("https://aira-chatbot-openai-react-backend.vercel.app:3080/chat", {

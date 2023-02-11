@@ -26,6 +26,12 @@ const Account = () => {
 
     const [isLoading, setIsLoading] = useState(false);
 
+    /**
+     * Bulk of code on this Component is for 
+     * Getting the relevant user's actions data from Firestore
+     * 
+     */
+
     // constants for (A)
     const [countUserActions, setCountUserActions] = useState(0);
 

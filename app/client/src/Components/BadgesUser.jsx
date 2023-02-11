@@ -1,6 +1,9 @@
 import React from 'react'
 import { badgesArr } from '../constants';
 
+// This component used in <Badges /> and <Account />
+// shows all badges for <Badges />, but only user's owned/earned badges in <Account />
+
 const BadgesUser = ({ userBadge1, userBadge2, userBadge3 }) => {
 
     console.log(userBadge1, userBadge2, userBadge3);
@@ -30,7 +33,7 @@ const BadgesUser = ({ userBadge1, userBadge2, userBadge3 }) => {
         // console.log(`data`, data)
         return (
             <div>   
-                {userBadge1 === undefined 
+                {userBadge1 === undefined // there is no props passed down i.e. this is the Badges page
                     ?
                     <div key={i}>
                         <h3>{data.name}</h3>

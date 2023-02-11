@@ -4,9 +4,12 @@ import { AppContext } from '../context';
 
 const Wish = () => {
 
+    // get global state props
     const contextProps = useContext(AppContext);
     const itemsArr = contextProps[0];
 
+    // split into multiple separate arrays based on the section type
+    // new arrays to be passed into Section component as props
     const conceptArr = itemsArr.filter((e, i) => {
         return e.data.section === "concept";
     })

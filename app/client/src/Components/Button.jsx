@@ -7,6 +7,7 @@ const Button = ({ name, type, prompt }) => {
 
     const statsRef = doc(db, "statistics", "downloads");
 
+    // check for data's `type`, then increment relevant counter
     const updateCount = async () => {
         if (type === "text") {
             await updateDoc(statsRef, {
@@ -35,6 +36,7 @@ const Button = ({ name, type, prompt }) => {
     let currentAction;
     let currentType;
 
+    // conditional for setting props to be passed down to <Action /> for tracking
     if (type === "text") {
         currentAction = "generate";
         currentType = "text";

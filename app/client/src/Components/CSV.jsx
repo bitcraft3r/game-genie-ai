@@ -29,7 +29,6 @@ const CSV = ({ slug, data, prompt }) => {
                 filename={`GGAI-${slug}-${formattedDate}.csv`}
                 target="_blank"
             >
-            {/* <button onClick={() => setCounterCSV(counterCSV+1)}> */}
             <div onClick={updateCountCSV}>
                 <Action type="text" action="download" prompt={prompt} handleParentSubmit={handleChildSubmit} buttonName="Download CSV" />
             </div>

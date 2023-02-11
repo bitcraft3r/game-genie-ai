@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import Button from './Button';
 import FormImg from './FormImg';
 import PNG from './PNG';
-// import { saveAs } from 'file-saver';
 
 const Dream = () => {
 
@@ -53,8 +52,6 @@ const Dream = () => {
 
     if (Math.random() < 0.5) promptPost = "beautiful female goddess adventurer, anime style, symmetrical facing front, beautiful nature landscape background";
     else promptPost = "handsome male god adventurer, anime style, symmetrical facing front, beautiful nature landscape background"
-
-    // let promptPost = input + ", beautiful goddess adventurer, anime style, symmetrical facing front, beautiful nature landscape background";
 
     console.log(`input from frontend`, JSON.stringify({ promptPost }));  // {"input":"user prompt here"}
 
@@ -137,8 +134,6 @@ const Dream = () => {
       </div>
       <div>
         <div className="dream-container">
-          {/* <code>/dream </code>
-          <textarea className="dream-box" value={input} placeholder="goddess adventurer, anime style, symmetrical facing front, beautiful nature landscape background" onChange={onChange} /> */}
           <div className="dream-buttons">
             <div 
               className={
@@ -153,7 +148,6 @@ const Dream = () => {
                   </div>
                 ) : (
                   <>
-                  {/* <Button name="Generate" type="image" /> */}
                   <Button name="Randomize" type="dice" prompt="-roll" />
                   </>
                 )}
