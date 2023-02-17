@@ -22,14 +22,6 @@ const generateText = async (req, res) => {
 
 export default generateText;
 
-// const bufferToBase64 = (buffer) => {
-//   let arr = new Uint8Array(buffer);
-//   const base64 = btoa(
-//     arr.reduce((data, byte) => data + String.fromCharCode(byte), '')
-//   )
-//   return `data:image/png;base64,${base64}`;
-// };
-
 // app.post('/chat', async (req, res) => {
 //     const { userPrompt, botName, botType } = req.body;
 //     console.log(`received server:`, userPrompt, botName, `(${botType})`)
@@ -61,38 +53,13 @@ export default generateText;
 //     })
 // });
 
-// app.post('/dream', async (req, res) => {
-//     console.log('input req', req.body);
-//     const input = req.body.promptPost;
-
-//     const response = await fetch(
-//         `https://api-inference.huggingface.co/models/SOV3/gemscape-characters-anime-style`, 
-//         {
-//             headers: {
-//                 Authorization: `Bearer ${process.env.HF_AUTH_KEY}`,
-//                 'Content-Type': 'application/json',
-//                 'x-use-cache': 'false'
-//             },
-//             method: 'POST',
-//             body: JSON.stringify({
-//                 inputs: input,
-//             }),
-//         }
-//     )
-
-//     // Check for different statuses to send proper payload
-//     if (response.ok) {
-//         const buffer = await response.arrayBuffer();
-//         const base64 = bufferToBase64(buffer);
-//         res.status(200).json({ image: base64 });
-//     } else if (response.status === 503) {
-//         const json = await response.json();
-//         res.status(503).json(json);
-//     } else {
-//         res.status(response.status).json({ error: response.statusText });
-//     }
-
-// })
+// const bufferToBase64 = (buffer) => {
+//   let arr = new Uint8Array(buffer);
+//   const base64 = btoa(
+//     arr.reduce((data, byte) => data + String.fromCharCode(byte), '')
+//   )
+//   return `data:image/png;base64,${base64}`;
+// };
 
 // app.post('/art', async (req, res) => {
 //     console.log('input req', req.body);
