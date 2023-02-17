@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Button from '../components/Button';
+import CSV from '../components/CSV';
 import userPFP from '../assets/adventurer.png';
 import airaPFP from '../assets/aira.png';
 
@@ -98,7 +99,7 @@ const Chat = () => {
                     </form>
                 </div>
                 <div>
-                    {/* <CSV slug="chat" data={chatLog} prompt={latestInput} /> */}
+                    <CSV slug="chat" data={chatLog} prompt={latestInput} />
                     <button onClick={clearChat}>Clear</button>
                 </div>
                 <br />
