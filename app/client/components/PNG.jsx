@@ -1,19 +1,19 @@
 // import React from 'react';
 import { saveAs } from 'file-saver';
-// import { db } from '../firebase';
-// import { doc, updateDoc, increment } from 'firebase/firestore';
-// import Action from './Action';
+import { db } from '../firebase/clientApp';
+import { doc, updateDoc, increment } from 'firebase/firestore';
+import Action from './Action';
 
 const PNG = (props) => {
 
-    // const statsRef = doc(db, "statistics", "downloads");
+    const statsRef = doc(db, "statistics", "downloads");
 
-    // // Atomically increment the count of CSV downloads.
-    // const updateCountPNG = async () => {
-    //     await updateDoc(statsRef, {
-    //         countPNG: increment(1)
-    //     });
-    // };
+    // Atomically increment the count of PNG downloads.
+    const updateCountPNG = async () => {
+        await updateDoc(statsRef, {
+            countPNG: increment(1)
+        });
+    };
 
     const handleSave = () => {
         let url = `${props.img}`;
@@ -25,13 +25,13 @@ const PNG = (props) => {
         updateCountPNG();
     }
 
-    // const handleChildSubmit = async () => {
-    //     console.log(`calling handleChildSubmit`)
-    // }
+    const handleChildSubmit = async () => {
+        console.log(`calling handleChildSubmit`)
+    }
 
     return (
         <div onClick={handleSave}>
-            {/* <Action type="image" action="download" prompt={props.finalPrompt} handleParentSubmit={handleChildSubmit} buttonName="Download Image" /> */}
+            <Action type="image" action="download" prompt={props.finalPrompt} handleParentSubmit={handleChildSubmit} buttonName="Download Image" />
         </div>
     )
 }
