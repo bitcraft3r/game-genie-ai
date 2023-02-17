@@ -1,0 +1,125 @@
+/******************** 
+** NAVBAR
+*********************/
+
+.nav {
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+.nav-logo {
+  padding: 0 1rem;
+}
+.nav-logo img {
+  width: 200px;
+  height: 68px;
+}
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  padding: 0 1rem;
+  list-style-type: none;
+}
+.nav-links li {
+  padding: 0 1rem;
+}
+
+/******************** 
+** FOOTER
+*********************/
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+  padding: 0 2rem;
+}
+.footer div, a, p {
+  display: flex;
+  flex: 1;
+}
+.footer div {
+  justify-content: left;
+}
+.footer a {
+  justify-content: center;
+}
+.footer p {
+  justify-content: right;
+}
+
+/******************** 
+** CONTAINER
+*********************/
+
+.container {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin: 1rem;
+  text-align: center;
+}
+
+
+/******************** 
+** CHAT
+*********************/
+
+.messages-container {
+  text-align: left;
+}
+
+.messages-item {
+  padding: 0.25rem;   
+}
+.messages-item img {
+  width: 50px;
+  border-radius: 50%;
+}
+
+.form-input {
+  width: 75%;
+}
+
+/******************** 
+** LOADING RING ANIMATION
+*********************/
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  animation: spin 1s linear infinite;
+}
+
+
+/******************** 
+** 
+*********************/
+
+
+/******************** 
+** 
+*********************/
+
+
+/******************** 
+** 
+*********************/
