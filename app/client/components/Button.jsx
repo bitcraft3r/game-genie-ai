@@ -30,7 +30,7 @@ const Button = ({ name, type, prompt }) => {
 
     // Call `addAction` function in Child <Action /> component
     const handleChildSubmit = async () => {
-        console.log(`calling handleChildSubmit`)
+        // console.log(`calling handleChildSubmit`)
     }
 
     let currentAction;
