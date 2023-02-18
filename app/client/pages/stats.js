@@ -161,7 +161,7 @@ function Stats() {
     return (
         <>
         <Head>
-            <title>Stats</title>
+            <title>Stats - Game Genie AI</title>
         </Head>
         <Navbar />
         <div className="container">

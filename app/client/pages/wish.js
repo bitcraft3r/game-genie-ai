@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Head from "next/head";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { itemsArr } from "../constants";
@@ -66,6 +67,9 @@ function Wish() {
 
     return (
         <>
+        <Head>
+            <title>Wish - Game Genie AI</title>
+        </Head>
         <Navbar />
         <div className="container">
             <div className="header">

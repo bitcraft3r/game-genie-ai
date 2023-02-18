@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
+import Head from 'next/head';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Button from '../components/Button';
@@ -56,6 +57,9 @@ const Chat = () => {
 
     return (
         <>
+        <Head>
+            <title>Chat - Game Genie AI</title>
+        </Head>
         <Navbar />
         <div className="container">
             <div className="container">

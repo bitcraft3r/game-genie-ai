@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Head from 'next/head';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useState, useEffect } from 'react';
@@ -124,6 +125,9 @@ const Dream = () => {
     
     return (
         <>
+        <Head>
+            <title>Dream - Game Genie AI</title>
+        </Head>
         <Navbar />
         <div className="container">
             <div className="header">
