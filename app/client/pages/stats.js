@@ -1,24 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { db } from '../firebase';
+import { useEffect, useState } from 'react';
+import Head from 'next/head';
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import { db } from "../firebase/clientApp";
 import { doc, getDoc, collection, query, where, getDocs } from 'firebase/firestore';
 
-/**
- * BUG: Double counting of Action stats only
- * 
- * Why is my TOTAL ACTIONS & STATS double counting?
- * Temporary band-aid solution to divide results by 2.
- * 
- * Does not affect statistics/count stats
- * 
- */
-
-/**
- * TODO: Make DRY - Refactor queries to use simpler compound query, collectiong group queries etc.
- * https://firebase.google.com/docs/firestore/query-data/queries#compound_queries
- * 
- */
-
-const Stats = () => {
+function Stats() {
     const [isLoading, setIsLoading] = useState(false);
 
     const [countCSV, setCountCSV] = useState(0);
@@ -70,12 +57,12 @@ const Stats = () => {
 
             const docSnap = await getDoc(docRef);
             
-            if (docSnap.exists()) {
-                console.log("Document data:", docSnap.data());
-            } else {
-                // doc.data() will be undefined in this case
-                console.log("No such document!");
-            }
+            // if (docSnap.exists()) {
+            //     console.log("Document data:", docSnap.data());
+            // } else {
+            //     // doc.data() will be undefined in this case
+            //     console.log("No such document!");
+            // }
             
             setCountCSV(docSnap.data().countCSV);
             setCountPNG(docSnap.data().countPNG);
@@ -119,51 +106,51 @@ const Stats = () => {
               setCountImages(countImages => countImages+1);
             });
 
-            /**
-             * TOTAL ACTIONS BY PATH
-             */
+            // /**
+            //  * TOTAL ACTIONS BY PATH
+            //  */
 
-            const queryPathHomeSnapshot = await getDocs(qTotalPathHome);
-            queryPathHomeSnapshot.forEach((doc) => {
-              setCountPathHome(countPathHome => countPathHome+1);
-              setCountPathOthers(countPathOthers => countPathOthers-1);
-            });
+            // const queryPathHomeSnapshot = await getDocs(qTotalPathHome);
+            // queryPathHomeSnapshot.forEach((doc) => {
+            //   setCountPathHome(countPathHome => countPathHome+1);
+            //   setCountPathOthers(countPathOthers => countPathOthers-1);
+            // });
 
-            const queryPathChatSnapshot = await getDocs(qTotalPathChat);
-            queryPathChatSnapshot.forEach((doc) => {
-              setCountPathChat(countPathChat => countPathChat+1);
-              setCountPathOthers(countPathOthers => countPathOthers-1);
-            });
+            // const queryPathChatSnapshot = await getDocs(qTotalPathChat);
+            // queryPathChatSnapshot.forEach((doc) => {
+            //   setCountPathChat(countPathChat => countPathChat+1);
+            //   setCountPathOthers(countPathOthers => countPathOthers-1);
+            // });
 
-            const queryPathDreamSnapshot = await getDocs(qTotalPathDream);
-            queryPathDreamSnapshot.forEach((doc) => {
-              setCountPathDream(countPathDream => countPathDream+1);
-              setCountPathOthers(countPathOthers => countPathOthers-1);
-            });
+            // const queryPathDreamSnapshot = await getDocs(qTotalPathDream);
+            // queryPathDreamSnapshot.forEach((doc) => {
+            //   setCountPathDream(countPathDream => countPathDream+1);
+            //   setCountPathOthers(countPathOthers => countPathOthers-1);
+            // });
 
-            const queryPathWishSnapshot = await getDocs(qTotalPathWish);
-            queryPathWishSnapshot.forEach((doc) => {
-              setCountPathWish(countPathWish => countPathWish+1);
-              setCountPathOthers(countPathOthers => countPathOthers-1);
-            });
+            // const queryPathWishSnapshot = await getDocs(qTotalPathWish);
+            // queryPathWishSnapshot.forEach((doc) => {
+            //   setCountPathWish(countPathWish => countPathWish+1);
+            //   setCountPathOthers(countPathOthers => countPathOthers-1);
+            // });
 
-            const queryPathStatsSnapshot = await getDocs(qTotalPathStats);
-            queryPathStatsSnapshot.forEach((doc) => {
-              setCountPathStats(countPathStats => countPathStats+1);
-              setCountPathOthers(countPathOthers => countPathOthers-1);
-            });
+            // const queryPathStatsSnapshot = await getDocs(qTotalPathStats);
+            // queryPathStatsSnapshot.forEach((doc) => {
+            //   setCountPathStats(countPathStats => countPathStats+1);
+            //   setCountPathOthers(countPathOthers => countPathOthers-1);
+            // });
 
-            const queryPathAccountSnapshot = await getDocs(qTotalPathAccount);
-            queryPathAccountSnapshot.forEach((doc) => {
-              setCountPathAccount(countPathAccount => countPathAccount+1);
-              setCountPathOthers(countPathOthers => countPathOthers-1);
-            });
+            // const queryPathAccountSnapshot = await getDocs(qTotalPathAccount);
+            // queryPathAccountSnapshot.forEach((doc) => {
+            //   setCountPathAccount(countPathAccount => countPathAccount+1);
+            //   setCountPathOthers(countPathOthers => countPathOthers-1);
+            // });
 
-            const queryPathSigninSnapshot = await getDocs(qTotalPathSignin);
-            queryPathSigninSnapshot.forEach((doc) => {
-              setCountPathSignin(countPathSignin => countPathSignin+1);
-              setCountPathOthers(countPathOthers => countPathOthers-1);
-            });
+            // const queryPathSigninSnapshot = await getDocs(qTotalPathSignin);
+            // queryPathSigninSnapshot.forEach((doc) => {
+            //   setCountPathSignin(countPathSignin => countPathSignin+1);
+            //   setCountPathOthers(countPathOthers => countPathOthers-1);
+            // });
 
             setIsLoading(false);
 
@@ -172,11 +159,16 @@ const Stats = () => {
     }, []);
 
     return (
+        <>
+        <Head>
+            <title>Stats</title>
+        </Head>
+        <Navbar />
         <div className="container">
             <h1>Statistics 📊</h1>
             <h2>Platform Usage Metrics</h2>
-            
-              {isLoading ? (
+
+            {isLoading ? (
                   <div className="loader-container">
                       <div className="loader"></div>
                   </div>
@@ -200,7 +192,7 @@ const Stats = () => {
                 <h3>Share Actions</h3>
                   <p>Tweets Shared: {countTweet}</p>
               </div>
-              <div className="container">
+              {/* <div className="container">
                 <h3>Actions by PATH</h3>
                   <p>Total Actions on /home: {Math.ceil(countPathHome/2)}</p>
                   <p>Total Actions on /chat: {Math.ceil(countPathChat/2)}</p>
@@ -210,11 +202,14 @@ const Stats = () => {
                   <p>Total Actions on /stats: {Math.ceil(countPathStats/2)}</p>
                   <p>Total Actions on /account: {Math.ceil(countPathAccount/2)}</p>
                   <p>Total Actions on /signin: {Math.ceil(countPathSignin/2)}</p>
-              </div>
+              </div> */}
               </>
-              )}
+            )}
+
         </div>
-    )
-};
+        <Footer />
+        </>
+    );
+}
 
 export default Stats;

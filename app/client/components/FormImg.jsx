@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Button from './Button';
 import PNG from './PNG';
 
@@ -13,7 +14,7 @@ const FormImg = ({ suffix, placeholder, slug, server }) => {
     const [retry, setRetry] = useState(0);
     const [retryCount, setRetryCount] = useState(maxRetries);
   
-    const [width, setWidth] = useState(window.innerWidth);
+    // const [width, setWidth] = useState(window.innerWidth);
   
     const sleep = (ms) => {
       return new Promise((resolve) => {
@@ -51,9 +52,7 @@ const FormImg = ({ suffix, placeholder, slug, server }) => {
       console.log(`input from frontend`, JSON.stringify({ promptPost }));  // {"input":"user prompt here"}
   
       // fetch request
-      // const response = await fetch('https://aira-chatbot-openai-react-backend.vercel.app:3080/dream', {
-      // const response = await fetch('https://ggai-server.web.app:3080/dream', {
-      const response = await fetch(`http://localhost:3080/${server}`, {
+      const response = await fetch(`api/${server}`, {
         method: 'POST',
         headers: {
           "Content-Type": "application/json"
@@ -109,13 +108,13 @@ const FormImg = ({ suffix, placeholder, slug, server }) => {
       runRetry();
     }, [retry]);
   
-    useEffect(() => {
-      const handleResize = () => setWidth(window.innerWidth);
-      window.addEventListener('resize', handleResize);
-      return () => {
-        window.removeEventListener('resize', handleResize)
-      }
-    }, [window.innerWidth])  
+    // useEffect(() => {
+    //   const handleResize = () => setWidth(window.innerWidth);
+    //   window.addEventListener('resize', handleResize);
+    //   return () => {
+    //     window.removeEventListener('resize', handleResize)
+    //   }
+    // }, [window.innerWidth])  
 
     return (
         <div>
@@ -144,11 +143,13 @@ const FormImg = ({ suffix, placeholder, slug, server }) => {
             <div className="container">
                 {img && (
                 <div className="output-content">
-                    <img 
+                    <Image 
                     src={img} 
-                    width={
-                        (width < 640) ? "100%" : 512
-                    }
+                    // width={
+                    //     (width < 640) ? "100%" : 512
+                    // }
+                    width="500"
+                    height="500"
                     alt={input} 
                     />
                     <p>{finalPrompt}</p>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { db } from '../firebase';
+import { db } from '../firebase/clientApp';
 import { doc, updateDoc, increment } from 'firebase/firestore';
 import Action from './Action';
 

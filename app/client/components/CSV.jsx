@@ -1,8 +1,9 @@
-import React from 'react'
+// import React from 'react'
 import { CSVLink } from "react-csv";
-import { db } from '../firebase';
+import { db } from "../firebase/clientApp";
 import { doc, updateDoc, increment } from 'firebase/firestore';
 import Action from './Action';
+// import Button from "./Button";
 
 const CSV = ({ slug, data, prompt }) => {
 
@@ -29,6 +30,7 @@ const CSV = ({ slug, data, prompt }) => {
                 filename={`GGAI-${slug}-${formattedDate}.csv`}
                 target="_blank"
             >
+            {/* <Button name="Download CSV" /> */}
             <div onClick={updateCountCSV}>
                 <Action type="text" action="download" prompt={prompt} handleParentSubmit={handleChildSubmit} buttonName="Download CSV" />
             </div>
@@ -36,4 +38,4 @@ const CSV = ({ slug, data, prompt }) => {
     )
 }
 
-export default CSV
+export default CSV;

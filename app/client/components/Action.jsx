@@ -1,8 +1,8 @@
 import React from 'react'
-import { db } from '../firebase';
+import { db } from '../firebase/clientApp';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
-import { useLocation } from 'react-router';
-import { UserAuth } from '../context/AuthContext';
+// import { useLocation } from 'react-router';
+// import { UserAuth } from '../context/AuthContext';
 
 /**
  * 
@@ -12,25 +12,28 @@ import { UserAuth } from '../context/AuthContext';
 
 const Action = ({ type, action, prompt, handleParentSubmit, buttonName }) => {
 
-    const location = useLocation();
-    const locationPathname = location.pathname;
-    const { user } = UserAuth();
+    // const location = useLocation();
+    // const locationPathname = location.pathname;
+    // const { user } = UserAuth();
 
-    let userName = user?.displayName || "anonymous";
-    let userEmail = user?.email || "-"
+    // let userName = user?.displayName || "anonymous";
+    // let userEmail = user?.email || "-"
 
     const addAction = async () => {
-        console.log(`creating action on firestore`);
+        // console.log(`creating action on firestore`);
         const docRef = await addDoc(collection(db, "actions"), {
-            name: userName,
-            email: userEmail,
+            // name: userName,
+            // email: userEmail,
+            name: "test user name",
+            email: "test user email",
             action: action, // generate or download
             type: type, // text or image
             prompt: prompt,
-            path: locationPathname,
+            // path: locationPathname,
+            path: "testingpathname",
             timestamp: Timestamp.now()
         });
-        console.log("Document written with ID: ", docRef.id);
+        // console.log("Document written with ID: ", docRef.id);
     } 
 
     const handleSubmit = async () => {

@@ -1,6 +1,6 @@
-import React from 'react';
+// import React from 'react';
 import { saveAs } from 'file-saver';
-import { db } from '../firebase';
+import { db } from '../firebase/clientApp';
 import { doc, updateDoc, increment } from 'firebase/firestore';
 import Action from './Action';
 
@@ -8,7 +8,7 @@ const PNG = (props) => {
 
     const statsRef = doc(db, "statistics", "downloads");
 
-    // Atomically increment the count of CSV downloads.
+    // Atomically increment the count of PNG downloads.
     const updateCountPNG = async () => {
         await updateDoc(statsRef, {
             countPNG: increment(1)
@@ -36,4 +36,4 @@ const PNG = (props) => {
     )
 }
 
-export default PNG
+export default PNG;
