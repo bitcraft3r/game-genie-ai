@@ -76,7 +76,10 @@ function Wish() {
                     <h2>Create imaginative worlds, immersive stories, and viral content</h2>
                 </div>
             </div>
-            <div className="create-container">
+            <div className="container">
+                <h3>Coming Soon...</h3>
+            </div>
+            {/* <div className="create-container">
                 <h3>Concept</h3>
                 {conceptItems}
                 <h3>Story</h3>
@@ -85,7 +88,7 @@ function Wish() {
                 {artItems}
                 <h3>Content</h3>
                 {contentItems}
-            </div>
+            </div> */}
         </div>
         <Footer />
         </>

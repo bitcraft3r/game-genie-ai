@@ -1,6 +1,14 @@
+import Footer from "../../components/Footer"
+import Navbar from "../../components/Navbar"
+
+
 const WishPage = () => {
   return (
-    <div>WishPage</div>
+    <>
+    <Navbar />
+    <div>COMING SOON</div>
+    <Footer />
+    </>
   )
 }
 

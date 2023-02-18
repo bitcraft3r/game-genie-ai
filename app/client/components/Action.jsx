@@ -20,7 +20,7 @@ const Action = ({ type, action, prompt, handleParentSubmit, buttonName }) => {
     // let userEmail = user?.email || "-"
 
     const addAction = async () => {
-        console.log(`creating action on firestore`);
+        // console.log(`creating action on firestore`);
         const docRef = await addDoc(collection(db, "actions"), {
             // name: userName,
             // email: userEmail,
@@ -33,7 +33,7 @@ const Action = ({ type, action, prompt, handleParentSubmit, buttonName }) => {
             path: "testingpathname",
             timestamp: Timestamp.now()
         });
-        console.log("Document written with ID: ", docRef.id);
+        // console.log("Document written with ID: ", docRef.id);
     } 
 
     const handleSubmit = async () => {

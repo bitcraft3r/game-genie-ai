@@ -55,7 +55,7 @@ const Dream = () => {
         if (Math.random() < 0.5) promptPost = "beautiful female goddess adventurer, anime style, symmetrical facing front, beautiful nature landscape background";
         else promptPost = "handsome male god adventurer, anime style, symmetrical facing front, beautiful nature landscape background"
 
-        console.log(`input from frontend`, JSON.stringify({ promptPost }));  // {"input":"user prompt here"}
+        // console.log(`input from frontend`, JSON.stringify({ promptPost }));  // {"input":"user prompt here"}
 
         // fetch request
         const response = await fetch('api/image', {
@@ -67,7 +67,7 @@ const Dream = () => {
         });
 
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
 
         if (response.status === 503) {
         console.log("Model is still loading...");
@@ -86,7 +86,7 @@ const Dream = () => {
 
         // Set image data into state property
         setImg(data.image);
-        console.log('img', img);
+        // console.log('img', img);
 
         setIsGenerating(false);
 
@@ -150,7 +150,7 @@ const Dream = () => {
                         </div>
                         ) : (
                         <>
-                        <Button name="Randomize" type="dice" prompt="-roll" />
+                        <Button name="Randomize" type="dice" prompt="roll" />
                         </>
                         )}
                     </div>
@@ -158,6 +158,7 @@ const Dream = () => {
                 </div>
                 </div>
             </div>
+            <br />
             <div className="image-container">
                 {img && (
                 <div className="output-content">
@@ -171,7 +172,7 @@ const Dream = () => {
                     alt={input} 
                     />
                     <p>{finalPrompt}</p>
-                    <PNG img={img} finalPrompt="-roll" slug="dream" />
+                    <PNG img={img} finalPrompt="roll" slug="dream" />
                 </div>
                 )}
             </div>

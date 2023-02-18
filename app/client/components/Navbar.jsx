@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import logo from '../assets/logo.png';
+import ShareTwitterButton from './ShareTwitterButton';
 
 const Navbar = () => {
   return (
@@ -13,6 +14,9 @@ const Navbar = () => {
             <li><Link href="/chat">Chat</Link></li>
             <li><Link href="/dream">Dream</Link></li>
         </ul>
+        <div>
+          <ShareTwitterButton />
+        </div>
     </nav>
   )
 };
