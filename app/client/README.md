@@ -23,6 +23,14 @@
 
 6. `npm uninstall react-router-dom`
 
+### Google Auth on Nextjs
+
+1. `npm i firebase`
+
+2. `npm i react-firebase-hooks`
+
+
+
 References:
 - https://www.geeksforgeeks.org/how-to-migrate-from-create-react-app-to-next-js/
 - https://nextjs.org/docs/migrating/from-create-react-app
