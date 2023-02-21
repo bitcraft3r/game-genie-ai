@@ -1,30 +1,32 @@
-// import { signOut } from 'firebase/auth';
-// import { useAuthState } from 'react-firebase-hooks/auth';
+import { signOut } from 'firebase/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../firebase/clientApp';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
-// import { auth } from '../firebase/clientApp';
 
 
 const Account = () => {
 
-    // const [user, setUser] = useAuthState(auth);
+    const [user, setUser] = useAuthState(auth);
 
-    // const handleSignOut = async () => {
-    //     try {
-    //         await signOut();
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // } 
+    const handleSignOut = async () => {
+        try {
+            await signOut(auth);
+        } catch (error) {
+            console.log(error);
+        }
+    } 
 
   return (
     <>
     <Navbar />
     <div className="container">
         <h1>Dashboard 🧙‍♀️</h1>
-        {/* <h2>Welcome, {user?.displayName}!</h2> */}
+        <h2>Welcome, {user?.displayName || "Anon"}!</h2>
         {/* nullish coalescing operator; check if `user` is null before accessing `displayName` property */}
-        {/* <button onClick={handleSignOut}>Logout</button> */}
+        { user ? (
+            <button onClick={handleSignOut}>Logout</button>
+        ) : ("Sign in to get started") }
         {/* <div className="container">
             <h3>Your Badges</h3>
             <BadgesUser 
